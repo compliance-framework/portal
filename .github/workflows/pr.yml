@@ -1,4 +1,4 @@
-name: PR
+name: Check PR
 
 permissions:
   contents: read
@@ -8,30 +8,5 @@ on:
     branches: ["*"]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-      - run: yarn --no-progress --pure-lockfile
-      - run: yarn lint
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-      - run: yarn --no-progress --pure-lockfile
-      - run: yarn test
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: yarn --no-progress --pure-lockfile
-      - run: yarn build
+  check:
+    uses: ./.github/workflows/check.yml
