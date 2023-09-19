@@ -24,7 +24,8 @@
       "@state/*": ["./src/state/*"],
       "@components/*": ["./src/components/*"],
       "@config": ["./src/config"]
-    }
+    },
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
