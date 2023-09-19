@@ -1,9 +1,7 @@
-name: CI
+name: PR Checks
 on:
   pull_request:
     branches: ["*"]
-  push:
-    branches: ["main"]
 
 jobs:
   lint:
