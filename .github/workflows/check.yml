@@ -30,3 +30,9 @@ jobs:
           node-version: 20
       - run: yarn --no-progress --pure-lockfile
       - run: yarn build
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dost
+          path: |
+            dist
