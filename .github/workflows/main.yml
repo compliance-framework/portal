@@ -1,7 +1,9 @@
-name: PR Checks
+name: Main
 on:
   pull_request:
     branches: ["*"]
+  push:
+    branches: ["main"]
 
 jobs:
   lint:
