@@ -1,3 +1,3 @@
 # Compliance Framework UI
 
-![Main](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+[![Main](https://github.com/compliance-framework/portal/actions/workflows/main.yml/badge.svg)](https://github.com/compliance-framework/portal/actions/workflows/main.yml)
