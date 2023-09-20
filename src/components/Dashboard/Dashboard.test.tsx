@@ -1,10 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import App from "./App";
+import { StoreProvider } from "../../state";
+import { Dashboard } from "./Dashboard";
 
-describe("App", () => {
+describe("Dashboard", () => {
   it("Vite to be in document", () => {
-    render(<App />);
+    render(
+      <StoreProvider>
+        <Dashboard />
+      </StoreProvider>,
+    );
     expect(screen.getByText("Hello world!")).toBeInTheDocument();
   });
 });

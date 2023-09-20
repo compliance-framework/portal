@@ -10,9 +10,7 @@ const TestStore = model("TestStore", {
   },
 }));
 
-const Store = types.model({
+export const Store = types.model({
   test: optional(TestStore, {}),
 });
-export type RootStoreType = Instance<typeof Store>;
-
-export const store = Store.create({});
+export type Store = Instance<typeof Store>;

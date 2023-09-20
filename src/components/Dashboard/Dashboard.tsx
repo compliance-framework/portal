@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { store } from "../state";
+import { useStore } from "../../state";
 
-export const App = observer(() => {
-  const { test } = store;
+export const Dashboard = observer(() => {
+  const { test } = useStore();
   return (
     <>
       <h1 className="text-3xl font-bold ">Hello world!</h1>
@@ -12,5 +12,3 @@ export const App = observer(() => {
     </>
   );
 });
-
-export default App;
