@@ -4,7 +4,7 @@ import { StoreProvider } from "../../state";
 import { Dashboard } from "./Dashboard";
 
 describe("Dashboard", () => {
-  it("Vite to be in document", () => {
+  it("Hello world to be in document", () => {
     render(
       <StoreProvider>
         <Dashboard />
