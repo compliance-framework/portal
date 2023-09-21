@@ -2,15 +2,15 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import "../../i18n";
 import { StoreProvider } from "../../state";
-import { Dashboard } from "./Dashboard";
+import { Header } from "./Header";
 
-describe("Dashboard", () => {
+describe("Header", () => {
   it("Hello world to be in document", () => {
     render(
       <StoreProvider>
-        <Dashboard />
+        <Header></Header>
       </StoreProvider>,
     );
-    expect(screen.getByText("Hello world!")).toBeInTheDocument();
+    expect(screen.getByText("Project Argus")).toBeInTheDocument();
   });
 });

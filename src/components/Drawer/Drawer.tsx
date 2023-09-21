@@ -1,4 +1,5 @@
 import { observer } from "mobx-react-lite";
+import { useTranslation } from "react-i18next";
 
 const ITEMS = [
   {
@@ -7,9 +8,9 @@ const ITEMS = [
     route: "/",
   },
   {
-    label: "Catalogs",
+    label: "Catalogues",
     icon: "folder",
-    route: "/catalogs",
+    route: "/catalogues",
   },
   {
     label: "Bundles",
@@ -29,13 +30,14 @@ const ITEMS = [
 ];
 
 export const Drawer = observer(() => {
+  const { t } = useTranslation();
   return (
     <nav className="bg-base-200 p-2">
       logo
       <ul className="inherit menu rounded-box">
         {ITEMS.map(item => (
-          <li key={item.label}>
-            <a>{item.label}</a>
+          <li key={item.route}>
+            <a>{t(item.label)}</a>
           </li>
         ))}
       </ul>
