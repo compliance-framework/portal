@@ -1,6 +1,6 @@
 export default {
   translation: {
-    productName: "Project Argus",
+    productName: "Compliance Framework",
     Dashboard: "Dashboard",
     Catalogues: "Catalogues",
     Bundles: "Bundles",
