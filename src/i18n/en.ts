@@ -1,10 +1,15 @@
 export default {
   translation: {
-    productName: "Project Argus",
-    Dashboard: "Dashboard",
-    Catalogues: "Catalogues",
-    Bundles: "Bundles",
-    Profiles: "Profiles",
-    "Assessment Plans": "Assessment Plans",
+    productName: "Compliance Framework",
+    drawer: {
+      dashboard: "Dashboard",
+      catalogues: "Catalogues",
+      bundles: "Bundles",
+      profiles: "Profiles",
+      assessmentPlans: "Assessment Plans",
+    },
+    widgets: {
+      summary: "Summary"
+    }
   },
 };
