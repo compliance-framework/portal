@@ -3,22 +3,22 @@ import { useTranslation } from "react-i18next";
 
 const ITEMS = [
   {
-    label: "Dashboard",
+    label: "drawer.dashboard",
     icon: "/dashboard.png",
     route: "/",
   },
   {
-    label: "Catalogues",
+    label: "drawer.catalogues",
     icon: "/catalogue.png",
     route: "/catalogues",
   },
   {
-    label: "Profiles",
+    label: "drawer.profiles",
     icon: "/profile.png",
     route: "/profiles",
   },
   {
-    label: "Assessments",
+    label: "drawer.assessmentPlans",
     icon: "/assessment.png",
     route: "/assessment-plans",
   },

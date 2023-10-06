@@ -1,10 +1,15 @@
 export default {
   translation: {
     productName: "Compliance Framework",
-    Dashboard: "Dashboard",
-    Catalogues: "Catalogues",
-    Bundles: "Bundles",
-    Profiles: "Profiles",
-    "Assessment Plans": "Assessment Plans",
+    drawer: {
+      dashboard: "Dashboard",
+      catalogues: "Catalogues",
+      bundles: "Bundles",
+      profiles: "Profiles",
+      assessmentPlans: "Assessment Plans",
+    },
+    widgets: {
+      summary: "Summary"
+    }
   },
 };
