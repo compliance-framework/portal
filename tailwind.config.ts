@@ -8,6 +8,18 @@ export default {
       },
       extend: {
           colors: {
+              'cloud-burst': {
+                  "50": "#e9eaed",
+                  "100": "#d3d4db",
+                  "200": "#a8a9b7",
+                  "300": "#7c7e92",
+                  "400": "#51536e",
+                  "500": "#25284a",
+                  "600": "#1e203b",
+                  "700": "#16182c",
+                  "800": "#0f101e",
+                  "900": "#07080f"
+              },
               'default-text-color': '#333',
               dim: '#B1B1B1',
               bright: '#FDFDFD',

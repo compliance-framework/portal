@@ -27,7 +27,7 @@ const ITEMS = [
 export const Drawer = observer(() => {
   const { t } = useTranslation();
   return (
-      <nav className="bg-base-200 flex flex-col justify-between rounded-lg">
+      <nav className="bg-cloud-burst-600 flex flex-col justify-between rounded-lg">
         <div>
           <div className="flex flex-row items-center justify-center text-center w-full my-4">
             <img src={"/logo.png"} alt="Compliance Framework" />
