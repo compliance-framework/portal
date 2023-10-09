@@ -42,10 +42,8 @@ export const Findings = observer(() => {
                             <span className="text-lg text-bright">{item.origin}</span>
                         </div>
                         <div className="flex flex-col w-64 text-right">
-                            <a><span className="mr-1 text-dim">{item.observations}</span><span
-                                className="underline">{"Observation" + (item.observations > 1 ? "s" : "")}</span></a>
-                            <a><span className="mr-1 text-dim">{item.risks}</span><span
-                                className="underline text-high">{"Risk" + (item.risks > 1 ? "s" : "")}</span></a>
+                            <a className="underline text-neutral"> Related {item.observations} Observation(s)</a>
+                            <a className="underline text-high"> Related {item.risks} Risks(s)</a>
                         </div>
                     </div>
                 ))}
