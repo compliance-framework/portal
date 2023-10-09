@@ -1,5 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
+import {Link} from "react-router-dom";
 
 const ITEMS = [
   {
@@ -18,9 +19,9 @@ const ITEMS = [
     route: "/profiles",
   },
   {
-    label: "drawer.assessmentPlans",
+    label: "drawer.assessments",
     icon: "/assessment.png",
-    route: "/assessment-plans",
+    route: "/assessments",
   },
 ];
 
@@ -35,12 +36,12 @@ export const Drawer = observer(() => {
           <ul className="inherit menu rounded-box">
             {ITEMS.map(item => (
                 <li key={item.route}>
-                  <a>
+                  <Link to={item.route}>
                     <div className="flex flex-col items-center text-center w-16">
                       <img src={item.icon} alt={item.label} className="my-2 w-8" />
                       <span>{t(item.label)}</span>
                     </div>
-                  </a>
+                  </Link>
                 </li>
             ))}
           </ul>

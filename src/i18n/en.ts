@@ -6,7 +6,7 @@ export default {
       catalogues: "Catalogues",
       bundles: "Bundles",
       profiles: "Profiles",
-      assessmentPlans: "Assessment Plans",
+      assessments: "Assessments",
     },
     widgets: {
       summary: "Summary"
