@@ -4,3 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    a {
+        @apply text-neutral underline-offset-2
+    }
+}
+
+@layer components {
+}

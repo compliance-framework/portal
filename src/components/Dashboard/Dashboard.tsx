@@ -1,25 +1,14 @@
 import {observer} from "mobx-react-lite";
 import {AppContainer} from "../AppContainer/AppContainer";
-import {Widget} from "../Common/Widget.tsx";
-import { useTranslation } from "react-i18next";
+import {Summary} from "../Assessment/Result/Summary.tsx";
+import {List} from "../Assessment/Result/List.tsx";
 
 export const Dashboard = observer(() => {
-    const { t } = useTranslation();
-
-    const buttonConfigs = [
-        { id: 'settings', icon: "/settings.png", title: "Settings" },
-    ];
-
-    const handleButtonClick = (id: string) => {
-        console.log(`Button ${id} clicked`);
-    };
-
     return (
         <AppContainer>
-            <div>
-                <Widget title={t('widgets.summary')} buttonConfigs={buttonConfigs} onButtonClick={handleButtonClick}>
-                    Children goes here...
-                </Widget>
+            <div className="grid gap-8 grid-cols-2">
+                <Summary />
+                <List />
             </div>
         </AppContainer>
     );
