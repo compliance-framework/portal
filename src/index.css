@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+    h1 {
+        @apply text-bright text-xl mb-2
+    }
+    h2 {
+        @apply text-bright text-lg mb-2
+    }
     a {
         @apply text-neutral underline-offset-2
     }

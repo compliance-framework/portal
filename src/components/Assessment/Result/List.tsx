@@ -53,6 +53,5 @@ export const List = observer(() => {
                 ))}
             </div>
         </Widget>
-    )
-        ;
+    );
 });
