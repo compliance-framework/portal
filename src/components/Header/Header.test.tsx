@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import "../../i18n";
-import en from "../../i18n/en";
 import { StoreProvider } from "../../state";
 import { Header } from "./Header";
 describe("Header", () => {
@@ -11,6 +10,6 @@ describe("Header", () => {
         <Header></Header>
       </StoreProvider>,
     );
-    expect(screen.getByText(en.translation.productName)).toBeInTheDocument();
+    expect(screen.getByText("bad")).toBeInTheDocument();
   });
 });
