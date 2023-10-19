@@ -3,6 +3,7 @@ import DrawerItem from "./DrawerItem";
 import assessmentIcon from "./assessment.png";
 import catalogueIcon from "./catalogue.png";
 import dashboardIcon from "./dashboard.png";
+import logoIcon from "./logo.png";
 import profileIcon from "./profile.png";
 import settingsIcon from "./settings.png";
 
@@ -34,7 +35,7 @@ export const Drawer = observer(() => {
     <nav className="flex flex-col justify-between rounded-lg bg-base-200">
       <div>
         <div className="my-4 flex w-full flex-row items-center justify-center text-center">
-          <img src={"/logo.png"} alt="Compliance Framework" />
+          <img src={logoIcon} alt="Compliance Framework" />
         </div>
         <ul className="inherit menu rounded-box">
           {ITEMS.map(item => (
