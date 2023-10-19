@@ -8,10 +8,10 @@ interface DashboardProps {
   children?: ReactNode;
 }
 
+const buttonConfigs = [{ id: "settings", icon: "/settings.png", title: "Settings" }];
+
 export const Dashboard = observer<DashboardProps>(({ children }) => {
   const { t } = useTranslation();
-
-  const buttonConfigs = [{ id: "settings", icon: "/settings.png", title: "Settings" }];
 
   const handleButtonClick = (id: string) => {
     console.log(`Button ${id} clicked`);

@@ -1,31 +1,35 @@
 import { observer } from "mobx-react-lite";
-import { useTranslation } from "react-i18next";
+import DrawerItem from "./DrawerItem";
+import assessmentIcon from "./assessment.png";
+import catalogueIcon from "./catalogue.png";
+import dashboardIcon from "./dashboard.png";
+import profileIcon from "./profile.png";
+import settingsIcon from "./settings.png";
 
 const ITEMS = [
   {
     label: "drawer.dashboard",
-    icon: "/dashboard.png",
+    icon: dashboardIcon,
     route: "/",
   },
   {
     label: "drawer.catalogues",
-    icon: "/catalogue.png",
+    icon: catalogueIcon,
     route: "/catalogues",
   },
   {
     label: "drawer.profiles",
-    icon: "/profile.png",
+    icon: profileIcon,
     route: "/profiles",
   },
   {
     label: "drawer.assessmentPlans",
-    icon: "/assessment.png",
+    icon: assessmentIcon,
     route: "/assessment-plans",
   },
 ];
 
 export const Drawer = observer(() => {
-  const { t } = useTranslation();
   return (
     <nav className="flex flex-col justify-between rounded-lg bg-base-200">
       <div>
@@ -34,14 +38,7 @@ export const Drawer = observer(() => {
         </div>
         <ul className="inherit menu rounded-box">
           {ITEMS.map(item => (
-            <li key={item.route}>
-              <a>
-                <div className="flex w-16 flex-col items-center text-center">
-                  <img src={item.icon} alt={item.label} className="my-2 w-8" />
-                  <span>{t(item.label)}</span>
-                </div>
-              </a>
-            </li>
+            <DrawerItem key={item.route} {...item} />
           ))}
         </ul>
       </div>
@@ -49,7 +46,7 @@ export const Drawer = observer(() => {
         <li>
           <a>
             <div className="flex w-16 flex-col items-center text-center">
-              <img src="/settings.png" alt="Settings" className="my-2 w-8" />
+              <img src={settingsIcon} alt="Settings" className="my-2 w-8" />
               <span>Settings</span>
             </div>
           </a>
