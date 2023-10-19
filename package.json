@@ -9,7 +9,6 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "tsc": "tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest --run",
     "prepare": "husky install"

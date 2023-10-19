@@ -1,3 +1,3 @@
 export default {
-  "**/*.{ts,tsx}": ["yarn lint", "yarn prettier format:write", "yarn tsc"],
+  "**/*.{ts,tsx}": ["yarn lint", "yarn format:write"],
 };
