@@ -11,7 +11,7 @@
     "format:write": "prettier --write .",
     "tsc": "tsc --noEmit",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest --run",
     "prepare": "husky install"
   },
   "dependencies": {
