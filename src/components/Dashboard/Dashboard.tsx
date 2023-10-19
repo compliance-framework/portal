@@ -1,26 +1,29 @@
-import {observer} from "mobx-react-lite";
-import {AppContainer} from "../AppContainer/AppContainer";
-import {Widget} from "../Common/Widget.tsx";
+import { observer } from "mobx-react-lite";
+import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
+import { AppContainer } from "../AppContainer/AppContainer";
+import { Widget } from "../Common/Widget.tsx";
 
-export const Dashboard = observer(() => {
-    const { t } = useTranslation();
+interface DashboardProps {
+  children?: ReactNode;
+}
 
-    const buttonConfigs = [
-        { id: 'settings', icon: "/settings.png", title: "Settings" },
-    ];
+export const Dashboard = observer<DashboardProps>(({ children }) => {
+  const { t } = useTranslation();
 
-    const handleButtonClick = (id: string) => {
-        console.log(`Button ${id} clicked`);
-    };
+  const buttonConfigs = [{ id: "settings", icon: "/settings.png", title: "Settings" }];
 
-    return (
-        <AppContainer>
-            <div>
-                <Widget title={t('widgets.summary')} buttonConfigs={buttonConfigs} onButtonClick={handleButtonClick}>
-                    Children goes here...
-                </Widget>
-            </div>
-        </AppContainer>
-    );
+  const handleButtonClick = (id: string) => {
+    console.log(`Button ${id} clicked`);
+  };
+
+  return (
+    <AppContainer>
+      <div>
+        <Widget title={t("widgets.summary")} buttonConfigs={buttonConfigs} onButtonClick={handleButtonClick}>
+          {children}
+        </Widget>
+      </div>
+    </AppContainer>
+  );
 });

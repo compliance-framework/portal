@@ -8,9 +8,9 @@ describe("Dashboard", () => {
   it("Hello world to be in document", () => {
     render(
       <StoreProvider>
-        <Dashboard />
+        <Dashboard>Hello world</Dashboard>
       </StoreProvider>,
     );
-    expect(screen.getByText("Hello world!")).toBeInTheDocument();
+    expect(screen.getByText("Hello world")).toBeInTheDocument();
   });
 });
