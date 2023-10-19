@@ -9,7 +9,7 @@ export default {
       assessmentPlans: "Assessment Plans",
     },
     widgets: {
-      summary: "Summary"
-    }
+      summary: "Summary",
+    },
   },
 };
