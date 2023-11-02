@@ -4,7 +4,7 @@ interface SummarySectionProps extends PropsWithChildren {}
 
 export function SummarySection({ children }: SummarySectionProps) {
   return (
-    <table className="">
+    <table className="w-full">
       <tbody>{children}</tbody>
     </table>
   );
