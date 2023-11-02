@@ -18,7 +18,7 @@ export const AssessmentResultSummary = observer<AssessmentResultSummaryProps>(({
     <Widget title={t("Summary")}>
       {id}
       <WidgetContent>
-        <Row>
+        <Row className="space-x-16">
           <SummarySection>
             <SummarySectionItem label={t("Published")}>01/02/2345 4:30PM</SummarySectionItem>
             <SummarySectionItem label={t("End Date")}>01/02/2345 4:30PM</SummarySectionItem>
@@ -31,7 +31,7 @@ export const AssessmentResultSummary = observer<AssessmentResultSummaryProps>(({
             </SummarySectionItem>
           </SummarySection>
 
-          <SummarySection>
+          <SummarySection className="w-[300px]">
             <SummarySectionItem label={t("# of Controls Tested")}>1</SummarySectionItem>
             <SummarySectionItem label={t("# of Subjects Tested")}>2</SummarySectionItem>
             <SummarySectionItem label={t("# of Observations")}>3</SummarySectionItem>

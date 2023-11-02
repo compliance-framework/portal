@@ -1,10 +1,12 @@
 import { PropsWithChildren } from "react";
 
-interface SummarySectionProps extends PropsWithChildren {}
+interface SummarySectionProps extends PropsWithChildren {
+  className?: string;
+}
 
-export function SummarySection({ children }: SummarySectionProps) {
+export function SummarySection({ children, className }: SummarySectionProps) {
   return (
-    <table className="w-full">
+    <table className={className}>
       <tbody>{children}</tbody>
     </table>
   );
