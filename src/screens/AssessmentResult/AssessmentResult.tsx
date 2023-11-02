@@ -7,13 +7,13 @@ import { DashboardRow } from "../../components/Common/DashboardRow.tsx";
 import { AssessmentResultComplianceTargets } from "./AssessmentResultComplianceTargets.tsx";
 import { AssessmentResultComplianceTime } from "./AssessmentResultComplianceTime.tsx";
 import { AssessmentResultRemediationTime } from "./AssessmentResultRemediationTime.tsx";
-import { AssessmentResultSummary } from "./AssessmentResultSummary.tsx";
+import { AssessmentResultSummary } from "./AssessmentResultSummary/AssessmentResultSummary.tsx";
 
-interface AssessementResultProps {
+interface AssessmentResultProps {
   children?: ReactNode;
 }
 
-export const AssessementResult = observer<AssessementResultProps>(() => {
+export const AssessmentResult = observer<AssessmentResultProps>(() => {
   const { id } = useParams();
 
   if (!id) return null;

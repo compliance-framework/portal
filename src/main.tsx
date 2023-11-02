@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./i18n";
 import "./index.css";
-import { AssessementResult } from "./screens/AssessmentResult/AssessmentResult";
+import { AssessmentResult } from "./screens/AssessmentResult";
 import { Dashboard } from "./screens/Dashboard";
 import { StoreProvider } from "./state";
 
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/assessment-result/:id",
-    element: <AssessementResult />,
+    element: <AssessmentResult />,
   },
 ]);
 
