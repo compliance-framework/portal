@@ -21,7 +21,14 @@ export default {
     },
     extend: {
       fontSize: {
+        xs: "11px",
+        sm: "12px",
         base: "14px",
+        xl: "20px",
+        "2xl": "24px",
+        "3xl": "30px",
+        "4xl": "36px",
+        "5xl": "48px",
       },
       colors: {
         indigo: {

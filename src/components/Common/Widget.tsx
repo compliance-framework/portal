@@ -18,7 +18,7 @@ export const Widget = observer<WidgetProps>(({ title, children, buttonConfigs = 
   return (
     <section className="flex flex-col rounded-lg bg-base-300 px-2">
       <header className="mx-2 mt-2 flex flex-row justify-between">
-        <h2 className="mb-2 text-lg font-bold text-neutral-180">{title}</h2>
+        <h2 className="mb-2 text-lg  text-neutral-180">{title}</h2>
         <div>
           {buttonConfigs.map((config, index) => (
             <button

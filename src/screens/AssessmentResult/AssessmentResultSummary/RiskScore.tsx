@@ -21,10 +21,10 @@ export const RiskScore = observer<RiskScoreProps>(({ score, risk, className }) =
 
   const riskClass = RISK_CLASSES[risk];
   return (
-    <Col className={`items-end ${className}`}>
+    <Col className={`items-end ${className} space-y-3`}>
       <span className="w-24 text-right text-xs text-neutral-350">{t("Risk Score")}</span>
-      <span className={`text-4xl font-bold  ${riskClass}`}>{score}</span>
-      <span>{t(risk)}</span>
+      <span className={`text-4xl font-bold leading-4 ${riskClass}`}>{score}</span>
+      <span className="text-sm">{t(risk)}</span>
     </Col>
   );
 });
