@@ -9,7 +9,7 @@ interface AssessmentResultRemediationTimeProps {
 export const AssessmentResultRemediationTime = observer<AssessmentResultRemediationTimeProps>(({ id }) => {
   const { t } = useTranslation();
   return (
-    <Widget title={t("Compliance Status of Controls Across Targets")}>
+    <Widget title={t("Distribution of Time Taken to Remediate Failed Controls")}>
       <WidgetContent>{id} [content]</WidgetContent>
     </Widget>
   );

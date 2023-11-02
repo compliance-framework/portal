@@ -16,6 +16,12 @@ export default {
         medium: "#FFA653",
         high: "#FF258E",
       },
+      compliance: {
+        unknown: "#BFBFBF",
+        bad: "#FF5353",
+        medium: "#FFA653",
+        good: "#00E794",
+      },
     },
     extend: {
       fontSize: {
