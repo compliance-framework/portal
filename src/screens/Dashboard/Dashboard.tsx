@@ -13,7 +13,7 @@ const buttonConfigs = [
     id: "settings",
     icon: "/settings.png",
     title: "Settings",
-    onClick: (id: string) => {
+    onClick: (id?: string) => {
       console.log(`Button ${id} clicked`);
     },
   },

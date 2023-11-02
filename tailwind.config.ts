@@ -4,7 +4,7 @@ export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Ropa Sans", "sans-serif"],
+      sans: ["Abel", "sans-serif"],
     },
     colors: {
       indigo: {
@@ -15,6 +15,11 @@ export default {
         low: "#FFFF50",
         medium: "#FFA653",
         high: "#FF258E",
+      },
+    },
+    extend: {
+      fontSize: {
+        base: "14px",
       },
     },
   },
