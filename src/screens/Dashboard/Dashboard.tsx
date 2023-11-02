@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
 import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { AppContainer } from "../AppContainer/AppContainer";
-import { Widget } from "../Common/Widget.tsx";
+import { AppContainer } from "../../components/AppContainer/AppContainer.tsx";
+import { Widget } from "../../components/Common/Widget.tsx";
 
 interface DashboardProps {
   children?: ReactNode;
