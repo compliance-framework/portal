@@ -6,7 +6,7 @@ interface SummarySectionItemProps extends PropsWithChildren {
 export function SummarySectionItem({ label, children }: SummarySectionItemProps) {
   return (
     <tr>
-      <td className="w-48 text-neutral-content">{label}</td>
+      <td className="w-48 text-neutral-350">{label}</td>
       <td>{children}</td>
     </tr>
   );

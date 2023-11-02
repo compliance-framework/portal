@@ -23,7 +23,7 @@ export function StatusRow({ label, data }: StatusRowProps) {
   const { t } = useTranslation();
   return (
     <tr>
-      <td className="w-64 pr-2 text-right text-neutral-content">{t(label)}</td>
+      <td className="w-64 pr-2 text-right text-neutral-350">{t(label)}</td>
       <td className="pt-1">
         <Row className="space-x-1">
           {data.map((item, idx) => (

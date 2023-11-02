@@ -7,10 +7,6 @@ export default {
       sans: ["Abel", "sans-serif"],
     },
     colors: {
-      indigo: {
-        600: "#303465",
-        800: "#4C5190",
-      },
       risk: {
         low: "#FFFF50",
         medium: "#FFA653",
@@ -27,6 +23,16 @@ export default {
       fontSize: {
         base: "14px",
       },
+      colors: {
+        indigo: {
+          600: "#303465",
+          800: "#4C5190",
+        },
+        neutral: {
+          350: "#B1B1B1",
+          180: "#E8E8E8",
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],
@@ -42,7 +48,6 @@ export default {
           "base-200": "#26284A",
           "base-300": "#222545",
           "base-content": "#FDFDFD",
-          "neutral-content": "#B1B1B1",
           info: "#3abff8",
           success: "#00E794",
           warning: "#FFA653",
