@@ -10,7 +10,7 @@ interface DashboardProps {
 const toolbar = (
   <button
     onClick={() => console.log("summary clicked")}
-    className="border-indigo-801 flex flex-row items-center justify-center rounded border px-2 py-1">
+    className="flex flex-row items-center justify-center rounded border border-indigo-850 px-2 py-1">
     <img src={"/settings.png"} alt="Settings" className="mr-2 w-4" />
     Settings
   </button>

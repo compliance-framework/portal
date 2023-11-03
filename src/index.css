@@ -10,6 +10,11 @@
   a {
     @apply text-neutral underline-offset-2;
   }
+  #root,
+  html,
+  body {
+    @apply bg-base-300;
+  }
 }
 
 @tailwind base;

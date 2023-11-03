@@ -11,9 +11,9 @@ interface RiskScoreProps {
 }
 
 const RISK_CLASSES: Record<Risk, string> = {
-  Low: "text-risk-low",
-  Medium: "text-risk-medium",
-  High: "text-risk-high",
+  Low: "text-low",
+  Medium: "text-medium",
+  High: "text-high",
 };
 
 export const RiskScore = observer<RiskScoreProps>(({ score, risk, className }) => {
