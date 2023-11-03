@@ -1,4 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap");
+
+@layer base {
+  h1 {
+    @apply text-bright mb-2 text-3xl;
+  }
+  h2 {
+    @apply text-bright mb-2 text-xl;
+  }
+  a {
+    @apply text-neutral underline-offset-2;
+  }
+}
 
 @tailwind base;
 @tailwind components;

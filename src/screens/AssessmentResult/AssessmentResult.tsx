@@ -2,12 +2,10 @@ import { observer } from "mobx-react-lite";
 import { ReactNode } from "react";
 import { useParams } from "react-router-dom";
 import { AppContainer } from "../../components/AppContainer/AppContainer.tsx";
-import { DashboardColumn } from "../../components/Common/DashboardColumn.tsx";
-import { DashboardRow } from "../../components/Common/DashboardRow.tsx";
-import { AssessmentResultComplianceTime } from "./AssessmentResultComplianceTime.tsx";
-import { AssessmentResultRemediationTime } from "./AssessmentResultRemediationTime.tsx";
-import { AssessmentResultSummary } from "./AssessmentResultSummary/AssessmentResultSummary.tsx";
+import { Summary } from "./AssessmentResultSummary/Summary.tsx";
 import { ComplianceStatus } from "./ComplianceStatus/ComplianceStatus.tsx";
+import { FindingList } from "./FindingList.tsx";
+import { ResultList } from "./ResultList.tsx";
 
 interface AssessmentResultProps {
   children?: ReactNode;
@@ -20,16 +18,12 @@ export const AssessmentResult = observer<AssessmentResultProps>(() => {
 
   return (
     <AppContainer>
-      <DashboardRow>
-        <DashboardColumn>
-          <AssessmentResultSummary id={id} />
-          <ComplianceStatus id={id} />
-        </DashboardColumn>
-        <DashboardColumn>
-          <AssessmentResultComplianceTime id={id} />
-          <AssessmentResultRemediationTime id={id} />
-        </DashboardColumn>
-      </DashboardRow>
+      <div className="m-0 grid grid-cols-2 gap-2 p-0">
+        <Summary id={id} />
+        <FindingList />
+        <ComplianceStatus id={id} />
+        <ResultList />
+      </div>
     </AppContainer>
   );
 });

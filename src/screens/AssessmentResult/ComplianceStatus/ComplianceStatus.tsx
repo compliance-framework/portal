@@ -18,12 +18,11 @@ const DUMMY_ROWS: { label: string; data: StatusRowDataItem[] }[] = [
     data: [{ state: "good" }, { state: "bad" }, { state: "medium" }, { state: "unknown" }],
   },
 ];
-export const ComplianceStatus = observer<ComplianceStatusProps>(({ id }) => {
+export const ComplianceStatus = observer<ComplianceStatusProps>(() => {
   const { t } = useTranslation();
   return (
     <Widget title={t("Compliance Status of Controls Across Targets")}>
       <WidgetContent>
-        {id}
         <table className="">
           <tbody>
             {DUMMY_ROWS.map((row, idx) => (

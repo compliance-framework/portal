@@ -7,24 +7,21 @@ import { Widget } from "../../components/Common/Widget.tsx";
 interface DashboardProps {
   children?: ReactNode;
 }
-
-const buttonConfigs = [
-  {
-    id: "settings",
-    icon: "/settings.png",
-    title: "Settings",
-    onClick: (id?: string) => {
-      console.log(`Button ${id} clicked`);
-    },
-  },
-];
+const toolbar = (
+  <button
+    onClick={() => console.log("summary clicked")}
+    className="border-indigo-801 flex flex-row items-center justify-center rounded border px-2 py-1">
+    <img src={"/settings.png"} alt="Settings" className="mr-2 w-4" />
+    Settings
+  </button>
+);
 
 export const Dashboard = observer<DashboardProps>(({ children }) => {
   const { t } = useTranslation();
 
   return (
     <AppContainer>
-      <Widget title={t("widgets.summary")} buttonConfigs={buttonConfigs}>
+      <Widget title={t("widgets.summary")} toolbar={toolbar}>
         {children}
       </Widget>
     </AppContainer>

@@ -5,9 +5,5 @@ interface SummarySectionProps extends PropsWithChildren {
 }
 
 export function SummarySection({ children, className }: SummarySectionProps) {
-  return (
-    <table className={className}>
-      <tbody>{children}</tbody>
-    </table>
-  );
+  return <div className={`grid grid-cols-2 gap-8 ${className}`}>{children}</div>;
 }
