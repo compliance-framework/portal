@@ -2,10 +2,10 @@
 
 @layer base {
   h1 {
-    @apply text-bright mb-2 text-3xl;
+    @apply mb-2 text-3xl text-bright;
   }
   h2 {
-    @apply text-bright mb-2 text-xl;
+    @apply mb-2 text-xl text-bright;
   }
   a {
     @apply text-neutral underline-offset-2;
