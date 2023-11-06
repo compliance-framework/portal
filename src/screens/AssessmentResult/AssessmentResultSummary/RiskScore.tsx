@@ -1,6 +1,5 @@
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
-import { Col } from "../../../components/Common/Col";
 
 type Risk = "Low" | "Medium" | "High";
 
@@ -21,10 +20,10 @@ export const RiskScore = observer<RiskScoreProps>(({ score, risk, className }) =
 
   const riskClass = RISK_CLASSES[risk];
   return (
-    <Col className={`items-end ${className} space-y-3`}>
+    <div className={`flex flex-col items-end space-y-3 ${className}`}>
       <span className="w-24 text-right text-xs text-dim">{t("Risk Score")}</span>
       <span className={`text-4xl font-bold leading-4 ${riskClass}`}>{score}</span>
       <span className="text-sm">{t(risk)}</span>
-    </Col>
+    </div>
   );
 });

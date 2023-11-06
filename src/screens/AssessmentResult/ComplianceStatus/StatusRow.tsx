@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Row } from "../../../components/Common/Row";
 
 type State = "good" | "medium" | "bad" | "unknown";
 
@@ -25,11 +24,11 @@ export function StatusRow({ label, data }: StatusRowProps) {
     <tr>
       <td className="w-64 pr-2 text-right text-dim">{t(label)}</td>
       <td className="pt-1">
-        <Row className="space-x-1">
+        <div className="flex flex-row space-x-1">
           {data.map((item, idx) => (
             <div className={`${STATE_CLASS[item.state]} h-6 w-6 rounded`} key={idx} />
           ))}
-        </Row>
+        </div>
       </td>
     </tr>
   );
