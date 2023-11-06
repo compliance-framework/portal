@@ -7,7 +7,7 @@ interface DrawerItemProps {
   icon: string;
 }
 
-const DrawerItem = observer<DrawerItemProps>(({ route, label, icon }) => {
+export const DrawerItem = observer<DrawerItemProps>(({ route, label, icon }) => {
   const { t } = useTranslation();
   return (
     <li>
@@ -20,5 +20,3 @@ const DrawerItem = observer<DrawerItemProps>(({ route, label, icon }) => {
     </li>
   );
 });
-
-export default DrawerItem;

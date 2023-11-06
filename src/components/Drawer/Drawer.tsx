@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import DrawerItem from "./DrawerItem";
+import { DrawerItem } from "./DrawerItem";
 import assessmentIcon from "./assessment.png";
 import catalogueIcon from "./catalogue.png";
 import dashboardIcon from "./dashboard.png";
