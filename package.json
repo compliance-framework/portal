@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@nivo/core": "^0.83.0",
+    "axios": "^1.6.0",
     "i18next": "^23.5.1",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.4",
