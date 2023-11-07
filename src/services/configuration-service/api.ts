@@ -1208,10 +1208,10 @@ export const CatalogApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiCatalogPost: async (handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        catalogPost: async (handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'handlerCreateCatalogRequest' is not null or undefined
-            assertParamExists('apiCatalogPost', 'handlerCreateCatalogRequest', handlerCreateCatalogRequest)
-            const localVarPath = `/api/catalog`;
+            assertParamExists('catalogPost', 'handlerCreateCatalogRequest', handlerCreateCatalogRequest)
+            const localVarPath = `/catalog`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1254,8 +1254,8 @@ export const CatalogApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiCatalogPost(handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerCatalogIdResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiCatalogPost(handlerCreateCatalogRequest, options);
+        async catalogPost(handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerCatalogIdResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.catalogPost(handlerCreateCatalogRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1275,8 +1275,8 @@ export const CatalogApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiCatalogPost(handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options?: any): AxiosPromise<HandlerCatalogIdResponse> {
-            return localVarFp.apiCatalogPost(handlerCreateCatalogRequest, options).then((request) => request(axios, basePath));
+        catalogPost(handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options?: any): AxiosPromise<HandlerCatalogIdResponse> {
+            return localVarFp.catalogPost(handlerCreateCatalogRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1296,8 +1296,8 @@ export class CatalogApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CatalogApi
      */
-    public apiCatalogPost(handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options?: AxiosRequestConfig) {
-        return CatalogApiFp(this.configuration).apiCatalogPost(handlerCreateCatalogRequest, options).then((request) => request(this.axios, this.basePath));
+    public catalogPost(handlerCreateCatalogRequest: HandlerCreateCatalogRequest, options?: AxiosRequestConfig) {
+        return CatalogApiFp(this.configuration).catalogPost(handlerCreateCatalogRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1316,10 +1316,10 @@ export const MetadataApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiMetadataRevisionsPost: async (handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        metadataRevisionsPost: async (handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'handlerAttachMetadataRequest' is not null or undefined
-            assertParamExists('apiMetadataRevisionsPost', 'handlerAttachMetadataRequest', handlerAttachMetadataRequest)
-            const localVarPath = `/api/metadata/revisions`;
+            assertParamExists('metadataRevisionsPost', 'handlerAttachMetadataRequest', handlerAttachMetadataRequest)
+            const localVarPath = `/metadata/revisions`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1362,8 +1362,8 @@ export const MetadataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiMetadataRevisionsPost(handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiMetadataRevisionsPost(handlerAttachMetadataRequest, options);
+        async metadataRevisionsPost(handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.metadataRevisionsPost(handlerAttachMetadataRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1383,8 +1383,8 @@ export const MetadataApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiMetadataRevisionsPost(handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options?: any): AxiosPromise<string> {
-            return localVarFp.apiMetadataRevisionsPost(handlerAttachMetadataRequest, options).then((request) => request(axios, basePath));
+        metadataRevisionsPost(handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options?: any): AxiosPromise<string> {
+            return localVarFp.metadataRevisionsPost(handlerAttachMetadataRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1404,8 +1404,8 @@ export class MetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MetadataApi
      */
-    public apiMetadataRevisionsPost(handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options?: AxiosRequestConfig) {
-        return MetadataApiFp(this.configuration).apiMetadataRevisionsPost(handlerAttachMetadataRequest, options).then((request) => request(this.axios, this.basePath));
+    public metadataRevisionsPost(handlerAttachMetadataRequest: HandlerAttachMetadataRequest, options?: AxiosRequestConfig) {
+        return MetadataApiFp(this.configuration).metadataRevisionsPost(handlerAttachMetadataRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1417,126 +1417,6 @@ export class MetadataApi extends BaseAPI {
  */
 export const PlanApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * This method creates a new task and adds it to a specific plan.
-         * @summary Creates a new task for a specific plan
-         * @param {string} id Plan ID
-         * @param {HandlerCreateTaskRequest} handlerCreateTaskRequest Task to add
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiPlanIdTasksPost: async (id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('apiPlanIdTasksPost', 'id', id)
-            // verify required parameter 'handlerCreateTaskRequest' is not null or undefined
-            assertParamExists('apiPlanIdTasksPost', 'handlerCreateTaskRequest', handlerCreateTaskRequest)
-            const localVarPath = `/api/plan/{id}/tasks`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(handlerCreateTaskRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * This function is used to create an activity for a given task.
-         * @summary Create activity
-         * @param {number} id Plan ID
-         * @param {number} taskId Task ID
-         * @param {HandlerCreateActivityRequest} handlerCreateActivityRequest Activity
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiPlanIdTasksTaskIdActivitiesPost: async (id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('apiPlanIdTasksTaskIdActivitiesPost', 'id', id)
-            // verify required parameter 'taskId' is not null or undefined
-            assertParamExists('apiPlanIdTasksTaskIdActivitiesPost', 'taskId', taskId)
-            // verify required parameter 'handlerCreateActivityRequest' is not null or undefined
-            assertParamExists('apiPlanIdTasksTaskIdActivitiesPost', 'handlerCreateActivityRequest', handlerCreateActivityRequest)
-            const localVarPath = `/api/plan/{id}/tasks/{taskId}/activities`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"taskId"}}`, encodeURIComponent(String(taskId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(handlerCreateActivityRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Creates a new plan in the system
-         * @summary Create a plan
-         * @param {HandlerCreatePlanRequest} handlerCreatePlanRequest Plan to add
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        apiPlanPost: async (handlerCreatePlanRequest: HandlerCreatePlanRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'handlerCreatePlanRequest' is not null or undefined
-            assertParamExists('apiPlanPost', 'handlerCreatePlanRequest', handlerCreatePlanRequest)
-            const localVarPath = `/api/plan`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(handlerCreatePlanRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Activate a plan by its ID. If the plan is already active, no action will be taken.
          * @summary Activate a plan
@@ -1605,16 +1485,6 @@ export const PlanApiAxiosParamCreator = function (configuration?: Configuration)
                 options: localVarRequestOptions,
             };
         },
-    }
-};
-
-/**
- * PlanApi - functional programming interface
- * @export
- */
-export const PlanApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PlanApiAxiosParamCreator(configuration)
-    return {
         /**
          * This method creates a new task and adds it to a specific plan.
          * @summary Creates a new task for a specific plan
@@ -1623,9 +1493,37 @@ export const PlanApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiPlanIdTasksPost(id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPlanIdTasksPost(id, handlerCreateTaskRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        planIdTasksPost: async (id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('planIdTasksPost', 'id', id)
+            // verify required parameter 'handlerCreateTaskRequest' is not null or undefined
+            assertParamExists('planIdTasksPost', 'handlerCreateTaskRequest', handlerCreateTaskRequest)
+            const localVarPath = `/plan/{id}/tasks`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(handlerCreateTaskRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
         },
         /**
          * This function is used to create an activity for a given task.
@@ -1636,9 +1534,40 @@ export const PlanApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiPlanIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Model201>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPlanIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        planIdTasksTaskIdActivitiesPost: async (id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('planIdTasksTaskIdActivitiesPost', 'id', id)
+            // verify required parameter 'taskId' is not null or undefined
+            assertParamExists('planIdTasksTaskIdActivitiesPost', 'taskId', taskId)
+            // verify required parameter 'handlerCreateActivityRequest' is not null or undefined
+            assertParamExists('planIdTasksTaskIdActivitiesPost', 'handlerCreateActivityRequest', handlerCreateActivityRequest)
+            const localVarPath = `/plan/{id}/tasks/{taskId}/activities`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"taskId"}}`, encodeURIComponent(String(taskId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(handlerCreateActivityRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
         },
         /**
          * Creates a new plan in the system
@@ -1647,10 +1576,45 @@ export const PlanApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiPlanPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiPlanPost(handlerCreatePlanRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        planPost: async (handlerCreatePlanRequest: HandlerCreatePlanRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'handlerCreatePlanRequest' is not null or undefined
+            assertParamExists('planPost', 'handlerCreatePlanRequest', handlerCreatePlanRequest)
+            const localVarPath = `/plan`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(handlerCreatePlanRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
         },
+    }
+};
+
+/**
+ * PlanApi - functional programming interface
+ * @export
+ */
+export const PlanApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PlanApiAxiosParamCreator(configuration)
+    return {
         /**
          * Activate a plan by its ID. If the plan is already active, no action will be taken.
          * @summary Activate a plan
@@ -1673,16 +1637,6 @@ export const PlanApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.planIdResultsGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-    }
-};
-
-/**
- * PlanApi - factory interface
- * @export
- */
-export const PlanApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PlanApiFp(configuration)
-    return {
         /**
          * This method creates a new task and adds it to a specific plan.
          * @summary Creates a new task for a specific plan
@@ -1691,8 +1645,9 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPlanIdTasksPost(id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options?: any): AxiosPromise<string> {
-            return localVarFp.apiPlanIdTasksPost(id, handlerCreateTaskRequest, options).then((request) => request(axios, basePath));
+        async planIdTasksPost(id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.planIdTasksPost(id, handlerCreateTaskRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * This function is used to create an activity for a given task.
@@ -1703,8 +1658,9 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPlanIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: any): AxiosPromise<Model201> {
-            return localVarFp.apiPlanIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options).then((request) => request(axios, basePath));
+        async planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Model201>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.planIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Creates a new plan in the system
@@ -1713,9 +1669,20 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiPlanPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: any): AxiosPromise<HandlerIdResponse> {
-            return localVarFp.apiPlanPost(handlerCreatePlanRequest, options).then((request) => request(axios, basePath));
+        async planPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.planPost(handlerCreatePlanRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+    }
+};
+
+/**
+ * PlanApi - factory interface
+ * @export
+ */
+export const PlanApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PlanApiFp(configuration)
+    return {
         /**
          * Activate a plan by its ID. If the plan is already active, no action will be taken.
          * @summary Activate a plan
@@ -1736,6 +1703,39 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
         planIdResultsGet(id: string, options?: any): AxiosPromise<Array<DomainResult>> {
             return localVarFp.planIdResultsGet(id, options).then((request) => request(axios, basePath));
         },
+        /**
+         * This method creates a new task and adds it to a specific plan.
+         * @summary Creates a new task for a specific plan
+         * @param {string} id Plan ID
+         * @param {HandlerCreateTaskRequest} handlerCreateTaskRequest Task to add
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        planIdTasksPost(id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options?: any): AxiosPromise<string> {
+            return localVarFp.planIdTasksPost(id, handlerCreateTaskRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * This function is used to create an activity for a given task.
+         * @summary Create activity
+         * @param {number} id Plan ID
+         * @param {number} taskId Task ID
+         * @param {HandlerCreateActivityRequest} handlerCreateActivityRequest Activity
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: any): AxiosPromise<Model201> {
+            return localVarFp.planIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new plan in the system
+         * @summary Create a plan
+         * @param {HandlerCreatePlanRequest} handlerCreatePlanRequest Plan to add
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        planPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: any): AxiosPromise<HandlerIdResponse> {
+            return localVarFp.planPost(handlerCreatePlanRequest, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -1746,45 +1746,6 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export class PlanApi extends BaseAPI {
-    /**
-     * This method creates a new task and adds it to a specific plan.
-     * @summary Creates a new task for a specific plan
-     * @param {string} id Plan ID
-     * @param {HandlerCreateTaskRequest} handlerCreateTaskRequest Task to add
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PlanApi
-     */
-    public apiPlanIdTasksPost(id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options?: AxiosRequestConfig) {
-        return PlanApiFp(this.configuration).apiPlanIdTasksPost(id, handlerCreateTaskRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This function is used to create an activity for a given task.
-     * @summary Create activity
-     * @param {number} id Plan ID
-     * @param {number} taskId Task ID
-     * @param {HandlerCreateActivityRequest} handlerCreateActivityRequest Activity
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PlanApi
-     */
-    public apiPlanIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: AxiosRequestConfig) {
-        return PlanApiFp(this.configuration).apiPlanIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Creates a new plan in the system
-     * @summary Create a plan
-     * @param {HandlerCreatePlanRequest} handlerCreatePlanRequest Plan to add
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PlanApi
-     */
-    public apiPlanPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: AxiosRequestConfig) {
-        return PlanApiFp(this.configuration).apiPlanPost(handlerCreatePlanRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Activate a plan by its ID. If the plan is already active, no action will be taken.
      * @summary Activate a plan
@@ -1808,6 +1769,45 @@ export class PlanApi extends BaseAPI {
     public planIdResultsGet(id: string, options?: AxiosRequestConfig) {
         return PlanApiFp(this.configuration).planIdResultsGet(id, options).then((request) => request(this.axios, this.basePath));
     }
+
+    /**
+     * This method creates a new task and adds it to a specific plan.
+     * @summary Creates a new task for a specific plan
+     * @param {string} id Plan ID
+     * @param {HandlerCreateTaskRequest} handlerCreateTaskRequest Task to add
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PlanApi
+     */
+    public planIdTasksPost(id: string, handlerCreateTaskRequest: HandlerCreateTaskRequest, options?: AxiosRequestConfig) {
+        return PlanApiFp(this.configuration).planIdTasksPost(id, handlerCreateTaskRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This function is used to create an activity for a given task.
+     * @summary Create activity
+     * @param {number} id Plan ID
+     * @param {number} taskId Task ID
+     * @param {HandlerCreateActivityRequest} handlerCreateActivityRequest Activity
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PlanApi
+     */
+    public planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: AxiosRequestConfig) {
+        return PlanApiFp(this.configuration).planIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new plan in the system
+     * @summary Create a plan
+     * @param {HandlerCreatePlanRequest} handlerCreatePlanRequest Plan to add
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PlanApi
+     */
+    public planPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: AxiosRequestConfig) {
+        return PlanApiFp(this.configuration).planPost(handlerCreatePlanRequest, options).then((request) => request(this.axios, this.basePath));
+    }
 }
 
 
@@ -1825,10 +1825,10 @@ export const SSPApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSspPost: async (handlerCreateSSPRequest: HandlerCreateSSPRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sspPost: async (handlerCreateSSPRequest: HandlerCreateSSPRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'handlerCreateSSPRequest' is not null or undefined
-            assertParamExists('apiSspPost', 'handlerCreateSSPRequest', handlerCreateSSPRequest)
-            const localVarPath = `/api/ssp`;
+            assertParamExists('sspPost', 'handlerCreateSSPRequest', handlerCreateSSPRequest)
+            const localVarPath = `/ssp`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1871,8 +1871,8 @@ export const SSPApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiSspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspPost(handlerCreateSSPRequest, options);
+        async sspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sspPost(handlerCreateSSPRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1892,8 +1892,8 @@ export const SSPApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiSspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: any): AxiosPromise<HandlerIdResponse> {
-            return localVarFp.apiSspPost(handlerCreateSSPRequest, options).then((request) => request(axios, basePath));
+        sspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: any): AxiosPromise<HandlerIdResponse> {
+            return localVarFp.sspPost(handlerCreateSSPRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1913,8 +1913,8 @@ export class SSPApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SSPApi
      */
-    public apiSspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: AxiosRequestConfig) {
-        return SSPApiFp(this.configuration).apiSspPost(handlerCreateSSPRequest, options).then((request) => request(this.axios, this.basePath));
+    public sspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: AxiosRequestConfig) {
+        return SSPApiFp(this.configuration).sspPost(handlerCreateSSPRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
