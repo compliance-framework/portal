@@ -12,8 +12,12 @@ interface AssessmentResultProps {
   children?: ReactNode;
 }
 
-const planApi = new PlanApi(new Configuration());
+const configuration = new Configuration({
+  basePath: "http://localhost:8080/api",
+});
+const planApi = new PlanApi(configuration);
 
+console.log("NEW CONFIG", configuration);
 export const AssessmentResult = observer<AssessmentResultProps>(() => {
   const { id } = useParams();
 
