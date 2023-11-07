@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import { ReactNode, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AppContainer } from "../../components/AppContainer/AppContainer.tsx";
-import { PlanApi } from "../../services/configuration-service";
+import { Configuration, PlanApi } from "../../services/configuration-service";
 import { Summary } from "./AssessmentResultSummary/Summary.tsx";
 import { ComplianceStatus } from "./ComplianceStatus/ComplianceStatus.tsx";
 import { FindingList } from "./FindingList.tsx";
@@ -12,10 +12,7 @@ interface AssessmentResultProps {
   children?: ReactNode;
 }
 
-const planApi = new PlanApi({
-  basePath: "http://localhost:8080/api",
-  isJsonMime: () => true,
-});
+const planApi = new PlanApi(new Configuration());
 
 export const AssessmentResult = observer<AssessmentResultProps>(() => {
   const { id } = useParams();
