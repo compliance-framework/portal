@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "preview": "vite preview",
     "test": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gen:configuration-service": "npx swagger2openapi ../configuration-service/docs/swagger.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service && rm openapi.json"
   },
   "dependencies": {
     "@nivo/core": "^0.83.0",

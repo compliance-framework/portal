@@ -14,6 +14,7 @@ interface AssessmentResultProps {
 
 const planApi = new PlanApi({
   basePath: "http://localhost:8080/api",
+  isJsonMime: () => true,
 });
 
 export const AssessmentResult = observer<AssessmentResultProps>(() => {
