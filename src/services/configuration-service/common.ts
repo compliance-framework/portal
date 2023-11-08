@@ -131,7 +131,7 @@ export const serializeDataIfNeeded = function (value: any, requestOptions: any, 
   const nonString = typeof value !== "string";
   const needsSerialization =
     nonString && configuration && configuration.isJsonMime
-      ? configuration.isJsonMime(requestOptions.headers["Content-Type"])
+      ? configuration.isJsonMime(requestOptions.headers?.["Content-Type"])
       : nonString;
   return needsSerialization ? JSON.stringify(value !== undefined ? value : {}) : value || "";
 };
