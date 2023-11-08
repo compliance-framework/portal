@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 import { DomainLink } from "./domain-link";
-import { DomainPart } from "./domain-part";
 import { DomainProperty } from "./domain-property";
 /**
  *

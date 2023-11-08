@@ -13,8 +13,10 @@
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install",
-    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service && yarn gen:configuration-service:fix-headers && yarn organise-imports && yarn format:write",
-    "gen:configuration-service:fix-headers": "find src/services -type f -exec sed -i '' 's/headers\\[/headers?.[/g' {} \\;"
+    "gen": "yarn gen:configuration-service && yarn gen:fix:headers && yarn organise-imports && yarn format:write",
+    "gen:fix:headers": "find src/services -type f -exec sed -i '' 's/headers\\[/headers?.[/g' {} \\;",
+    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service && yarn gen:configuration-service:fix:domain-part-circular",
+    "gen:configuration-service:fix:domain-part-circular": "find src/services/configuration-service/models/domain-part.ts -type f -exec sed -i '' '/\\.\\/domain-part/d' {} \\;"
   },
   "dependencies": {
     "@nivo/core": "^0.83.0",
