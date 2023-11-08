@@ -687,12 +687,6 @@ export interface DomainPart {
   ns?: string;
   /**
    *
-   * @type {Array<DomainPart>}
-   * @memberof DomainPart
-   */
-  parts?: Array<DomainPart>;
-  /**
-   *
    * @type {Array<DomainProperty>}
    * @memberof DomainPart
    */
