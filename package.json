@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install",
-    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service"
+    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service && yarn organise-imports && yarn format:write"
   },
   "dependencies": {
     "@nivo/core": "^0.83.0",
