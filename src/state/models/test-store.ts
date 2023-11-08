@@ -15,7 +15,6 @@ export function guardDomainResult(): DomainResult {
 
 export const TestStore = model("TestStore", {
   no: optional(number, 0),
-  potato: string,
 }).actions(self => ({
   increment() {
     self.no += 1;
@@ -27,7 +26,7 @@ interface APITestModel {
   potato: string;
 }
 
-export type TestStoreInstance = Instance<typeof TestStore>;
+export type TestStore = Instance<typeof TestStore>;
 export function guardTest(t: typeof TestStore): APITestModel {
   return getSnapshot(t.create({} as APITestModel));
 }
