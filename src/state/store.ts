@@ -1,4 +1,5 @@
 import { Instance, types } from "mobx-state-tree";
+import { TestStore } from "./models";
 
 const { optional } = types;
 
