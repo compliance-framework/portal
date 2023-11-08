@@ -9,10 +9,11 @@
     "lint": "eslint . --ext ts,tsx",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
+    "organise-imports": "organize-imports-cli src/**/*.{ts,tsx}",
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install",
-    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service && rm openapi.json"
+    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service"
   },
   "dependencies": {
     "@nivo/core": "^0.83.0",
@@ -47,6 +48,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "happy-dom": "^12.1.2",
     "husky": "^8.0.3",
+    "organize-imports-cli": "^0.10.0",
     "postcss": "^8.4.30",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",

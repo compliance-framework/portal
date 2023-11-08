@@ -13,15 +13,15 @@
  */
 
 
-import type { Configuration } from './configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosInstance, AxiosPromise, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
+import type { Configuration } from './configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 import type { RequestArgs } from './base';
+import { assertParamExists, createRequestFunction, DUMMY_BASE_URL, serializeDataIfNeeded, setSearchParams, toPathString } from './common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError } from './base';
+import { BaseAPI, BASE_PATH } from './base';
 
 /**
  * 
@@ -1658,7 +1658,7 @@ export const PlanApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Model201>> {
+        async planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.planIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1723,7 +1723,7 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: any): AxiosPromise<Model201> {
+        planIdTasksTaskIdActivitiesPost(id: number, taskId: number, handlerCreateActivityRequest: HandlerCreateActivityRequest, options?: any): AxiosPromise<HandlerIdResponse> {
             return localVarFp.planIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options).then((request) => request(axios, basePath));
         },
         /**

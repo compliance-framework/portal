@@ -33,3 +33,6 @@ coverage/*
 vite.config.d.ts
 vite.config.js
 *.tsbuildinfo
+
+# Codegen temp file
+openapi.json
