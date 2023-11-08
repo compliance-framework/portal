@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
-import { DrawerItem } from "./DrawerItem";
 import assessmentIcon from "./assessment.png";
 import catalogueIcon from "./catalogue.png";
 import dashboardIcon from "./dashboard.png";
+import { DrawerItem } from "./DrawerItem";
 import logoIcon from "./logo.png";
 import profileIcon from "./profile.png";
 import settingsIcon from "./settings.png";

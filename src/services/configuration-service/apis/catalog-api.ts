@@ -11,14 +11,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import globalAxios, { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { ApiError } from '../models';
-import { HandlerCatalogIdResponse } from '../models';
-import { HandlerCreateCatalogRequest } from '../models';
+import { BaseAPI, BASE_PATH, RequestArgs, RequiredError } from '../base';
+import { HandlerCatalogIdResponse, HandlerCreateCatalogRequest } from '../models';
 /**
  * CatalogApi - axios parameter creator
  * @export
