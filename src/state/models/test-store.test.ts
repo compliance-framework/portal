@@ -1,5 +1,3 @@
-import { TestStore } from "./test-store";
-
 import { describe, expect, it } from "vitest";
 
 describe("TestStore", () => {
