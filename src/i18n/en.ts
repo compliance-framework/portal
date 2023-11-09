@@ -10,6 +10,11 @@ export default {
     },
     widgets: {
       summary: "Summary",
+      assessment: {
+        result: {
+          list: "Assessment Results",
+        },
+      },
     },
   },
 };
