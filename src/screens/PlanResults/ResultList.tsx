@@ -1,9 +1,23 @@
-import { observer } from "mobx-react-lite";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Widget } from "../../components/Common/Widget";
 import { WidgetContent } from "../../components/Common/WidgetContent";
+import * as configurationService from "../../services/configuration-service";
 
-export const ResultList = observer(() => {
+interface ResultListProps {
+  results: configurationService.DomainResult[];
+}
+
+interface Item {
+  id: string;
+  compliant: boolean;
+  title: string;
+  activityTitle: string;
+  description: string;
+  observations: number;
+  risks: number;
+}
+export const ResultList = ({ results }: ResultListProps) => {
   const { t } = useTranslation();
 
   const toolbar = (
@@ -12,27 +26,43 @@ export const ResultList = observer(() => {
     </a>
   );
 
-  const items = [
-    {
-      id: "1",
-      compliant: true,
-      title: "Network Vulnerability Scan Result",
-      activityTitle: "System Configuration Check",
-      description:
-        "This report outlines the findings from the conducted network vulnerability scan. Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
-      observations: 30,
-      risks: 12,
-    },
-    {
-      id: "1",
-      compliant: false,
-      title: "Network Vulnerability Scan Result",
-      activityTitle: "System Configuration Check",
-      description: "Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
-      observations: 10,
-      risks: 1,
-    },
-  ];
+  const items = useMemo(
+    () =>
+      results.map(
+        (result): Item => ({
+          id: result.id,
+          compliant: true, // TODO: calculate
+          title: `${result.title}`,
+          activityTitle: `TODO`,
+          description: `${result.description}`,
+          observations: result.observations?.length ?? 0, // TODO
+          risks: result.risks?.length ?? 0, // TODO
+        }),
+      ),
+    [results],
+  );
+
+  // const items2 = [
+  //   {
+  //     id: "1",
+  //     compliant: true,
+  //     title: "Network Vulnerability Scan Result",
+  //     activityTitle: "System Configuration Check",
+  //     description:
+  //       "This report outlines the findings from the conducted network vulnerability scan. Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
+  //     observations: 30,
+  //     risks: 12,
+  //   },
+  //   {
+  //     id: "1",
+  //     compliant: false,
+  //     title: "Network Vulnerability Scan Result",
+  //     activityTitle: "System Configuration Check",
+  //     description: "Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
+  //     observations: 10,
+  //     risks: 1,
+  //   },
+  // ];
 
   return (
     <Widget title={t("widgets.assessment.result.list")} toolbar={toolbar}>
@@ -66,4 +96,4 @@ export const ResultList = observer(() => {
       </WidgetContent>
     </Widget>
   );
-});
+};

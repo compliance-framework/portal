@@ -13,12 +13,11 @@
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install",
-    "gen": "yarn gen:configuration-service && yarn gen:fix:headers && yarn organise-imports && yarn format:write",
+    "gen": "npm run gen:configuration-service && npm run gen:fix:headers && npm run organise-imports && npm run format:write",
     "gen:fix:headers": "find src/services -type f -exec sed -i '' 's/headers\\[/headers?.[/g' {} \\;",
     "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service"
   },
   "dependencies": {
-    "@nivo/core": "^0.83.0",
     "axios": "^1.6.0",
     "i18next": "^23.6.0",
     "mobx": "^6.10.2",
@@ -54,6 +53,8 @@
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
+    "prop-types": "^15.8.1",
+    "swagger2openapi": "^7.0.8",
     "tailwindcss": "^3.3.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
@@ -61,7 +62,7 @@
     "vitest": "^0.34.6"
   },
   "resolutions": {
-    "**/react": "^18.2.0",
-    "**/@types/react": "^18.2.37"
+    "react": "^18.2.0",
+    "@types/react": "^18.2.37"
   }
 }

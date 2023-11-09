@@ -1,4 +1,5 @@
-import { Config } from "tailwindcss";
+import tailwindForms from "@tailwindcss/forms";
+import daisyui from "daisyui";
 
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
@@ -49,7 +50,7 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("daisyui")],
+  plugins: [daisyui, tailwindForms],
   daisyui: {
     themes: [
       {

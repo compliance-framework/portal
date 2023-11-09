@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./i18n";
 import "./index.css";
-import { AssessmentResult } from "./screens/AssessmentResult";
 import { Dashboard } from "./screens/Dashboard";
+import { PlanResults } from "./screens/PlanResults";
 import { StoreProvider } from "./state";
 
 const router = createBrowserRouter([
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     element: <Dashboard />,
   },
   {
-    path: "/assessment-result/:id",
-    element: <AssessmentResult />,
+    path: "/plan/:id/results",
+    element: <PlanResults />,
   },
 ]);
 

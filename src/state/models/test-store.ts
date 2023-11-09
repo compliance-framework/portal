@@ -1,17 +1,27 @@
-import { getSnapshot, Instance, types } from "mobx-state-tree";
-import { DomainResult } from "../../services/configuration-service";
+import { Instance, types } from "mobx-state-tree";
 
 const { number, model, optional, string } = types;
 
-export const DomainResultModel = model("DomainResult").props({
+export const DomainResult = model("DomainResult").props({
+  id: string,
   description: optional(string, ""),
+  // potato: number,
 });
 
-export type DomainResultModel = Instance<typeof DomainResultModel>;
+type DomainResultModel = typeof DomainResult;
+export type DomainResult = Instance<DomainResultModel>;
 
-export function guardDomainResult(): DomainResult {
-  return getSnapshot(DomainResultModel.create({} as DomainResult));
-}
+// const dataFromAPI = {
+//   id: "1234",
+//   description: "blah",
+//   potato: 4,
+// };
+// const mod = DomainResult.create(dataFromAPI) satisfies configurationService.DomainResult;
+// Object() as configurationService.DomainResult satisfies DomainResult;
+
+// export function guardDomainResult(): DomainResult {
+//   return getSnapshot(DomainResult.create({} as DomainResult));
+// }
 
 export const TestStore = model("TestStore", {
   no: optional(number, 0),
@@ -21,12 +31,5 @@ export const TestStore = model("TestStore", {
   },
 }));
 
-interface APITestModel {
-  no: number;
-  potato: string;
-}
-
-export type TestStore = Instance<typeof TestStore>;
-export function guardTest(t: typeof TestStore): APITestModel {
-  return getSnapshot(t.create({} as APITestModel));
-}
+type TestStoreModel = typeof TestStore;
+export type TestStore = Instance<TestStoreModel>;

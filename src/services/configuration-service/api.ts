@@ -809,6 +809,12 @@ export interface DomainResult {
   observations?: Array<DomainObservation>;
   /**
    *
+   * @type {string}
+   * @memberof DomainResult
+   */
+  potato?: string;
+  /**
+   *
    * @type {Array<DomainProperty>}
    * @memberof DomainResult
    */
