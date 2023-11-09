@@ -3,6 +3,9 @@ import { ReactNode, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AppContainer } from "../../components/AppContainer/AppContainer.tsx";
 import * as configurationService from "../../services/configuration-service/index.ts";
+import { ComplianceStatus } from "./ComplianceStatus/ComplianceStatus.tsx";
+import { FindingList } from "./FindingList.tsx";
+import { Summary } from "./PlanResultSummary/Summary.tsx";
 import { ResultList } from "./ResultList.tsx";
 
 interface PlanResultsProps {
@@ -18,6 +21,7 @@ console.log("NEW CONFIG", configuration);
 export const PlanResults = observer<PlanResultsProps>(() => {
   const { id } = useParams();
 
+  // TODO: use a store or something
   const [results, setResults] = useState<configurationService.DomainResult[]>([]);
   if (!id) return null;
   useEffect(() => {
@@ -30,10 +34,10 @@ export const PlanResults = observer<PlanResultsProps>(() => {
   return (
     <AppContainer>
       <div className="m-0 grid grid-cols-2 gap-2 p-0">
-        {/* <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>
+        {/* <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>*/}
         <Summary id={id} />
         <FindingList />
-        <ComplianceStatus id={id} /> */}
+        <ComplianceStatus id={id} />
         <ResultList results={results} />
       </div>
     </AppContainer>
