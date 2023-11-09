@@ -21,7 +21,7 @@ console.log("NEW CONFIG", configuration);
 export const PlanResults = observer<PlanResultsProps>(() => {
   const { id } = useParams();
 
-  // TODO: use a store or something
+  // TODO: use a store tbd
   const [results, setResults] = useState<configurationService.DomainResult[]>([]);
   if (!id) return null;
   useEffect(() => {
