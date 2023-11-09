@@ -14,6 +14,9 @@ export default {
         result: {
           list: "Assessment Results",
         },
+        finding: {
+          list: "Findings",
+        },
       },
     },
   },

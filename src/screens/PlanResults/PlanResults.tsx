@@ -31,12 +31,15 @@ export const PlanResults = observer<PlanResultsProps>(() => {
     })();
   }, [id]);
 
+  // TODO: move this into whatever etc
+  const result = results[0];
+
   return (
     <AppContainer>
       <div className="m-0 grid grid-cols-2 gap-2 p-0">
         {/* <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>*/}
         <Summary id={id} />
-        <FindingList />
+        {result?.findings && <FindingList findings={result.findings} />}
         <ComplianceStatus id={id} />
         <ResultList results={results} />
       </div>

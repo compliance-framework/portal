@@ -1,9 +1,26 @@
 import { observer } from "mobx-react-lite";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Widget } from "../../components/Common/Widget";
 import { WidgetContent } from "../../components/Common/WidgetContent";
+import * as configurationService from "../../services/configuration-service";
 
-export const FindingList = observer(() => {
+interface Finding {
+  id: string;
+  compliant: boolean;
+  title: string;
+  activityTitle?: string;
+  origin: string;
+  description: string;
+  observations: number;
+  risks: number;
+}
+
+interface FindingListProps {
+  findings: configurationService.DomainFinding[];
+}
+
+export const FindingList = observer<FindingListProps>(({ findings }) => {
   const { t } = useTranslation();
 
   console.log("render findings");
@@ -14,28 +31,22 @@ export const FindingList = observer(() => {
     </a>
   );
 
-  const items = [
-    {
-      id: "1",
-      compliant: true,
-      title: "Network Vulnerability Scan Result",
-      origin: "CF Assessment Runtime",
-      description:
-        "This report outlines the findings from the conducted network vulnerability scan. Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
-      observations: 30,
-      risks: 12,
-    },
-    {
-      id: "1",
-      compliant: false,
-      title: "Network Vulnerability Scan Result",
-      origin: "CF Assessment Runtime",
-      activityTitle: "System Configuration Check",
-      description: "Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
-      observations: 10,
-      risks: 1,
-    },
-  ];
+  const items = useMemo(
+    () =>
+      findings.map(
+        (finding): Finding => ({
+          id: `${finding.id}`,
+          compliant: true, // TODO: calculate
+          title: `${finding.title}`,
+          origin: `${finding.origins?.join(", ")}`,
+          activityTitle: `TODO`,
+          description: `${finding.description}`,
+          observations: 0, // TODO
+          risks: 0, // TODO
+        }),
+      ),
+    [findings],
+  );
 
   return (
     <Widget title={t("widgets.assessment.finding.list")} toolbar={toolbar}>
