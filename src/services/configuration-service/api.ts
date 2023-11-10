@@ -1784,16 +1784,16 @@ export const PlanApiAxiosParamCreator = function (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    planIdResultsResultIdComplianceStatusGet: async (
+    planIdResultsResultIdComplianceStatusByTargetsGet: async (
       id: string,
       resultId: string,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
-      assertParamExists("planIdResultsResultIdComplianceStatusGet", "id", id);
+      assertParamExists("planIdResultsResultIdComplianceStatusByTargetsGet", "id", id);
       // verify required parameter 'resultId' is not null or undefined
-      assertParamExists("planIdResultsResultIdComplianceStatusGet", "resultId", resultId);
-      const localVarPath = `/plan/{id}/results/{resultId}/compliance-status`
+      assertParamExists("planIdResultsResultIdComplianceStatusByTargetsGet", "resultId", resultId);
+      const localVarPath = `/plan/{id}/results/{resultId}/compliance-status-by-targets`
         .replace(`{${"id"}}`, encodeURIComponent(String(id)))
         .replace(`{${"resultId"}}`, encodeURIComponent(String(resultId)));
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2223,12 +2223,12 @@ export const PlanApiFp = function (configuration?: Configuration) {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async planIdResultsResultIdComplianceStatusGet(
+    async planIdResultsResultIdComplianceStatusByTargetsGet(
       id: string,
       resultId: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceComplianceStatusByTargets>>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.planIdResultsResultIdComplianceStatusGet(
+      const localVarAxiosArgs = await localVarAxiosParamCreator.planIdResultsResultIdComplianceStatusByTargetsGet(
         id,
         resultId,
         options,
@@ -2431,13 +2431,13 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    planIdResultsResultIdComplianceStatusGet(
+    planIdResultsResultIdComplianceStatusByTargetsGet(
       id: string,
       resultId: string,
       options?: any,
     ): AxiosPromise<Array<ServiceComplianceStatusByTargets>> {
       return localVarFp
-        .planIdResultsResultIdComplianceStatusGet(id, resultId, options)
+        .planIdResultsResultIdComplianceStatusByTargetsGet(id, resultId, options)
         .then(request => request(axios, basePath));
     },
     /**
@@ -2619,9 +2619,9 @@ export class PlanApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof PlanApi
    */
-  public planIdResultsResultIdComplianceStatusGet(id: string, resultId: string, options?: AxiosRequestConfig) {
+  public planIdResultsResultIdComplianceStatusByTargetsGet(id: string, resultId: string, options?: AxiosRequestConfig) {
     return PlanApiFp(this.configuration)
-      .planIdResultsResultIdComplianceStatusGet(id, resultId, options)
+      .planIdResultsResultIdComplianceStatusByTargetsGet(id, resultId, options)
       .then(request => request(this.axios, this.basePath));
   }
 

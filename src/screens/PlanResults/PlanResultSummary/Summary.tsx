@@ -8,7 +8,7 @@ import { Loader } from "../../../components/Common/Loader";
 import { ValueField } from "../../../components/Common/ValueField";
 import { Widget } from "../../../components/Common/Widget";
 import { WidgetContent } from "../../../components/Common/WidgetContent";
-import { PlanApi } from "../../../config";
+import { API } from "../../../config";
 import * as configurationService from "../../../services/configuration-service";
 import { RiskLevels } from "./RiskLevels";
 import { RiskScore } from "./RiskScore";
@@ -24,7 +24,7 @@ export const Summary = observer<SummaryProps>(({ id, resultId }) => {
   const [data, setData] = useState<configurationService.ServicePlanSummary | null>(null);
   useEffect(() => {
     (async () => {
-      const response = await PlanApi.planIdResultsResultIdSummaryGet(id, resultId);
+      const response = await API.configurationService.plan.planIdResultsResultIdSummaryGet(id, resultId);
       setData(response.data);
     })();
   }, [id, resultId]);
