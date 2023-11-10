@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
-import GaugeChart from "react-gauge-chart";
+import GaugeChart from "react-gauge-chart-es";
 import { useTranslation } from "react-i18next";
 import { SettingsButton } from "../../../components/Buttons/SettingsButton";
 import { Field } from "../../../components/Common/Field";

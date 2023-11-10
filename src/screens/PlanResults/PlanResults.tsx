@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
 import { ReactNode } from "react";
 import { useParams } from "react-router-dom";
-import { AppContainer } from "../../components/AppContainer/AppContainer.tsx";
-import { ComplianceStatusByTargets } from "./ComplianceStatusByTargets/ComplianceStatusByTargets.tsx";
-import { Summary } from "./PlanResultSummary/Summary.tsx";
+import { AppContainer } from "../../components/AppContainer/AppContainer";
+import { ComplianceStatusByTargets } from "./ComplianceStatusByTargets/ComplianceStatusByTargets";
+import { Summary } from "./PlanResultSummary/Summary";
 
 interface PlanResultsProps {
   children?: ReactNode;
