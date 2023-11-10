@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Widget } from "../../components/Common/Widget";
 import { WidgetContent } from "../../components/Common/WidgetContent";
-import { PlanApi } from "../../config";
+import { API } from "../../config";
 import * as configurationService from "../../services/configuration-service";
 
 interface Finding {
@@ -37,7 +37,7 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
   const [data, setData] = useState<configurationService.DomainFinding[] | null>(null);
   useEffect(() => {
     (async () => {
-      const response = await PlanApi.planIdResultsResultIdFindingsGet(id, resultId);
+      const response = await API.configurationService.plan.planIdResultsResultIdFindingsGet(id, resultId);
       setData(response.data);
     })();
   }, [id, resultId]);

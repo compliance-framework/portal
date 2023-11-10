@@ -1,3 +1,3 @@
 export default {
-  "**/*.{ts,tsx}": ["organize-imports-cli", "yarn lint", "yarn format:write"],
+  "**/*.{ts,tsx}": ["organize-imports-cli", "pnpm run lint", "pnpm run format:write"],
 };

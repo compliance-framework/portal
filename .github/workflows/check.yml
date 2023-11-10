@@ -14,7 +14,7 @@ jobs:
         with:
           version: 8
           run_install: true
-      - run: pnpm lint
+      - run: pnpm run lint
   check-format:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +26,7 @@ jobs:
         with:
           version: 8
           run_install: true
-      - run: pnpm format:check
+      - run: pnpm run format:check
   test:
     runs-on: ubuntu-latest
     steps:

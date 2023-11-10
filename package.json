@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "tsc": "tsc",
     "lint": "eslint . --ext ts,tsx",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
@@ -15,7 +16,7 @@
     "prepare": "husky install",
     "gen": "npm run gen:configuration-service && npm run gen:fix:headers && npm run organise-imports && npm run format:write",
     "gen:fix:headers": "find src/services -type f -exec sed -i '' 's/headers\\[/headers?.[/g' {} \\;",
-    "gen:configuration-service": "npx swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service"
+    "gen:configuration-service": "swagger2openapi http://localhost:8080/swagger/doc.json > openapi.json && openapi-generator generate -i openapi.json -g typescript-axios -o ./src/services/configuration-service"
   },
   "dependencies": {
     "axios": "^1.6.0",

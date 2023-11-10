@@ -1019,6 +1019,12 @@ export interface HandlerCreateActivityRequest {
 export interface HandlerCreateActivityRequestProvider {
   /**
    *
+   * @type {{ [key: string]: string; }}
+   * @memberof HandlerCreateActivityRequestProvider
+   */
+  configuration?: { [key: string]: string };
+  /**
+   *
    * @type {string}
    * @memberof HandlerCreateActivityRequestProvider
    */
@@ -1174,6 +1180,12 @@ export interface HandlerCreateTaskRequest {
    * @memberof HandlerCreateTaskRequest
    */
   description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof HandlerCreateTaskRequest
+   */
+  schedule: string;
   /**
    * TODO: We are keeping it minimal for now for the demo
    * @type {string}
@@ -2353,7 +2365,7 @@ export const PlanApiFp = function (configuration?: Configuration) {
       taskId: number,
       handlerCreateActivityRequest: HandlerCreateActivityRequest,
       options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Model201>> {
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
       const localVarAxiosArgs = await localVarAxiosParamCreator.planIdTasksTaskIdActivitiesPost(
         id,
         taskId,
@@ -2542,7 +2554,7 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
       taskId: number,
       handlerCreateActivityRequest: HandlerCreateActivityRequest,
       options?: any,
-    ): AxiosPromise<Model201> {
+    ): AxiosPromise<HandlerIdResponse> {
       return localVarFp
         .planIdTasksTaskIdActivitiesPost(id, taskId, handlerCreateActivityRequest, options)
         .then(request => request(axios, basePath));

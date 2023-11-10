@@ -30,7 +30,7 @@ export const ResultList = ({ results }: ResultListProps) => {
     () =>
       results.map(
         (result): Item => ({
-          id: result.id,
+          id: `${result.id}`,
           compliant: true, // TODO: calculate
           title: `${result.title}`,
           activityTitle: `TODO`,
