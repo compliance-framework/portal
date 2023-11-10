@@ -1,47 +1,24 @@
 import { observer } from "mobx-react-lite";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import { useParams } from "react-router-dom";
 import { AppContainer } from "../../components/AppContainer/AppContainer.tsx";
-import * as configurationService from "../../services/configuration-service/index.ts";
-import { ComplianceStatus } from "./ComplianceStatus/ComplianceStatus.tsx";
-import { FindingList } from "./FindingList.tsx";
 import { Summary } from "./PlanResultSummary/Summary.tsx";
-import { ResultList } from "./ResultList.tsx";
 
 interface PlanResultsProps {
   children?: ReactNode;
 }
-
-const configuration = new configurationService.Configuration({
-  basePath: "http://localhost:8080/api",
-});
-const planApi = new configurationService.PlanApi(configuration);
-
-console.log("NEW CONFIG", configuration);
 export const PlanResults = observer<PlanResultsProps>(() => {
-  const { id } = useParams();
-
-  // TODO: use a store tbd
-  const [results, setResults] = useState<configurationService.DomainResult[]>([]);
-  if (!id) return null;
-  useEffect(() => {
-    (async () => {
-      const result = await planApi.planIdResultsGet(id);
-      setResults(result.data);
-    })();
-  }, [id]);
-
-  // TODO: move this into whatever etc
-  const result = results[0];
+  const { id = "TODO", resultId = "TODO" } = useParams();
 
   return (
     <AppContainer>
       <div className="m-0 grid grid-cols-2 gap-2 p-0">
         {/* <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>*/}
-        <Summary id={id} />
-        {result?.findings && <FindingList findings={result.findings} />}
-        <ComplianceStatus id={id} />
-        <ResultList results={results} />
+        <Summary id={id} resultId={resultId} />
+        {/* <FindingList id={id} resultId={resultId} />
+        <ComplianceStatus id={id} resultId={resultId} />
+        <ResultList id={id} resultId={resultId} />
+        <RemediationTime id={id} resultId={"TODO"} /> */}
       </div>
     </AppContainer>
   );

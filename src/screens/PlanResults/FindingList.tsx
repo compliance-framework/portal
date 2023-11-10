@@ -1,8 +1,9 @@
 import { observer } from "mobx-react-lite";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Widget } from "../../components/Common/Widget";
 import { WidgetContent } from "../../components/Common/WidgetContent";
+import { PlanApi } from "../../config";
 import * as configurationService from "../../services/configuration-service";
 
 interface Finding {
@@ -18,9 +19,11 @@ interface Finding {
 
 interface FindingListProps {
   findings: configurationService.DomainFinding[];
+  id: string;
+  resultId: string;
 }
 
-export const FindingList = observer<FindingListProps>(({ findings }) => {
+export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
   const { t } = useTranslation();
 
   console.log("render findings");
@@ -31,21 +34,31 @@ export const FindingList = observer<FindingListProps>(({ findings }) => {
     </a>
   );
 
+  const [data, setData] = useState<configurationService.DomainFinding[] | null>(null);
+  useEffect(() => {
+    (async () => {
+      const response = await PlanApi.planIdResultsResultIdFindingsGet(id, resultId);
+      setData(response.data);
+    })();
+  }, [id, resultId]);
+
   const items = useMemo(
     () =>
-      findings.map(
-        (finding): Finding => ({
-          id: `${finding.id}`,
-          compliant: true, // TODO: calculate
-          title: `${finding.title}`,
-          origin: `${finding.origins?.join(", ")}`,
-          activityTitle: `TODO`,
-          description: `${finding.description}`,
-          observations: 0, // TODO
-          risks: 0, // TODO
-        }),
-      ),
-    [findings],
+      data
+        ? data.map(
+            (finding): Finding => ({
+              id: `${finding.id}`,
+              compliant: true, // TODO: calculate
+              title: `${finding.title}`,
+              origin: `${finding.origins?.join(", ")}`,
+              activityTitle: `TODO`,
+              description: `${finding.description}`,
+              observations: 0, // TODO
+              risks: 0, // TODO
+            }),
+          )
+        : [],
+    [data],
   );
 
   return (

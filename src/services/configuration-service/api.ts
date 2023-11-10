@@ -1208,10 +1208,10 @@ export interface HandlerIdResponse {
 export interface ServiceComplianceStatusByTargets {
   /**
    *
-   * @type {string}
+   * @type {Array<ServiceRiskState>}
    * @memberof ServiceComplianceStatusByTargets
    */
-  compliance?: string;
+  compliance?: Array<ServiceRiskState>;
   /**
    *
    * @type {string}
@@ -1264,10 +1264,10 @@ export interface ServiceComplianceStatusOverTime {
 export interface ServicePlanSummary {
   /**
    *
-   * @type {string}
+   * @type {number}
    * @memberof ServicePlanSummary
    */
-  complianceStatus?: string;
+  complianceStatus?: number;
   /**
    *
    * @type {string}
@@ -1318,10 +1318,10 @@ export interface ServicePlanSummary {
   riskLevels?: ServiceRiskLevels;
   /**
    *
-   * @type {number}
+   * @type {ServiceRiskScore}
    * @memberof ServicePlanSummary
    */
-  riskScore?: number;
+  riskScore?: ServiceRiskScore;
   /**
    *
    * @type {string}
@@ -1373,6 +1373,54 @@ export interface ServiceRiskLevels {
    */
   medium?: number;
 }
+/**
+ *
+ * @export
+ * @interface ServiceRiskScore
+ */
+export interface ServiceRiskScore {
+  /**
+   *
+   * @type {number}
+   * @memberof ServiceRiskScore
+   */
+  score?: number;
+  /**
+   *
+   * @type {ServiceRiskSeverity}
+   * @memberof ServiceRiskScore
+   */
+  severity?: ServiceRiskSeverity;
+}
+
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+
+export const ServiceRiskSeverity = {
+  Medium: "medium",
+  Low: "low",
+  High: "high",
+} as const;
+
+export type ServiceRiskSeverity = (typeof ServiceRiskSeverity)[keyof typeof ServiceRiskSeverity];
+
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+
+export const ServiceRiskState = {
+  Pass: "pass",
+  Warn: "warn",
+  Fail: "fail",
+  Indeterminate: "indeterminate",
+} as const;
+
+export type ServiceRiskState = (typeof ServiceRiskState)[keyof typeof ServiceRiskState];
 
 /**
  * CatalogApi - axios parameter creator

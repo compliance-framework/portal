@@ -3,7 +3,7 @@ import { Field } from "./Field";
 
 interface FieldProps {
   label: string;
-  value: string;
+  value?: string | number;
 }
 
 export const ValueField = observer<FieldProps>(({ label, value }) => {
