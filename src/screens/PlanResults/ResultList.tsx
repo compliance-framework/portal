@@ -1,11 +1,14 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Loader } from "../../components/Common/Loader";
 import { Widget } from "../../components/Common/Widget";
 import { WidgetContent } from "../../components/Common/WidgetContent";
+import { API } from "../../config";
 import * as configurationService from "../../services/configuration-service";
 
 interface ResultListProps {
-  results: configurationService.DomainResult[];
+  id: string;
+  resultId: string;
 }
 
 interface Item {
@@ -17,9 +20,16 @@ interface Item {
   observations: number;
   risks: number;
 }
-export const ResultList = ({ results }: ResultListProps) => {
+export const ResultList = ({ id, resultId }: ResultListProps) => {
   const { t } = useTranslation();
 
+  const [data, setData] = useState<configurationService.DomainResult[] | null>(null);
+  useEffect(() => {
+    (async () => {
+      const response = await API.configurationService.plan.planIdResultsResultIdFindingsGet(id, resultId);
+      setData(response.data);
+    })();
+  }, [id, resultId]);
   const toolbar = (
     <a href={""} className="underline">
       See All
@@ -28,18 +38,20 @@ export const ResultList = ({ results }: ResultListProps) => {
 
   const items = useMemo(
     () =>
-      results.map(
-        (result): Item => ({
-          id: `${result.id}`,
-          compliant: true, // TODO: calculate
-          title: `${result.title}`,
-          activityTitle: `TODO`,
-          description: `${result.description}`,
-          observations: result.observations?.length ?? 0, // TODO
-          risks: result.risks?.length ?? 0, // TODO
-        }),
-      ),
-    [results],
+      data
+        ? data.map(
+            (result): Item => ({
+              id: `${result.id}`,
+              compliant: true, // TODO: calculate
+              title: `${result.title}`,
+              activityTitle: `TODO`,
+              description: `${result.description}`,
+              observations: result.observations?.length ?? 0, // TODO
+              risks: result.risks?.length ?? 0, // TODO
+            }),
+          )
+        : null,
+    [data],
   );
 
   // const items2 = [
@@ -63,6 +75,8 @@ export const ResultList = ({ results }: ResultListProps) => {
   //     risks: 1,
   //   },
   // ];
+
+  if (!items) return <Loader />;
 
   return (
     <Widget title={t("widgets.assessment.result.list")} toolbar={toolbar}>

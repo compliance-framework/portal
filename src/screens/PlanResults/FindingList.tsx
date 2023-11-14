@@ -18,7 +18,6 @@ interface Finding {
 }
 
 interface FindingListProps {
-  findings: configurationService.DomainFinding[];
   id: string;
   resultId: string;
 }
