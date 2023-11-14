@@ -53,8 +53,8 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
               origin: `${finding.origins?.join(", ")}`,
               activityTitle: `TODO`,
               description: `${finding.description}`,
-              observations: 0, // TODO
-              risks: 0, // TODO
+              observations: finding.relatedObservations?.length ?? 0,
+              risks: finding.relatedRisks?.length ?? 0,
             }),
           )
         : [],
