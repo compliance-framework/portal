@@ -8,7 +8,6 @@ import * as configurationService from "../../services/configuration-service";
 
 interface ResultListProps {
   id: string;
-  resultId: string;
 }
 
 interface Item {
@@ -20,16 +19,16 @@ interface Item {
   observations: number;
   risks: number;
 }
-export const ResultList = ({ id, resultId }: ResultListProps) => {
+export const ResultList = ({ id }: ResultListProps) => {
   const { t } = useTranslation();
 
   const [data, setData] = useState<configurationService.DomainResult[] | null>(null);
   useEffect(() => {
     (async () => {
-      const response = await API.configurationService.plan.planIdResultsResultIdFindingsGet(id, resultId);
+      const response = await API.configurationService.plan.planIdResultsGet(id);
       setData(response.data);
     })();
-  }, [id, resultId]);
+  }, [id]);
   const toolbar = (
     <a href={""} className="underline">
       See All
@@ -53,28 +52,6 @@ export const ResultList = ({ id, resultId }: ResultListProps) => {
         : null,
     [data],
   );
-
-  // const items2 = [
-  //   {
-  //     id: "1",
-  //     compliant: true,
-  //     title: "Network Vulnerability Scan Result",
-  //     activityTitle: "System Configuration Check",
-  //     description:
-  //       "This report outlines the findings from the conducted network vulnerability scan. Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
-  //     observations: 30,
-  //     risks: 12,
-  //   },
-  //   {
-  //     id: "1",
-  //     compliant: false,
-  //     title: "Network Vulnerability Scan Result",
-  //     activityTitle: "System Configuration Check",
-  //     description: "Solutions have been proposed for all identified vulnerabilities to mitigate potential risks.",
-  //     observations: 10,
-  //     risks: 1,
-  //   },
-  // ];
 
   if (!items) return <Loader />;
 

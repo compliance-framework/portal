@@ -6,6 +6,7 @@ import { ComplianceStatusByTargets } from "../PlanResults/ComplianceStatusByTarg
 import { FindingList } from "../PlanResults/FindingList";
 import { Summary } from "../PlanResults/PlanResultSummary/Summary";
 import { RemediationTime } from "../PlanResults/RemediationTime";
+import { ResultList } from "../PlanResults/ResultList";
 
 interface DashboardProps {
   children?: ReactNode;
@@ -19,6 +20,7 @@ export const Dashboard = observer<DashboardProps>(() => {
         <Summary id={id} resultId={resultId} />
         <ComplianceStatusByTargets id={id} resultId={resultId} />
         <FindingList id={id} resultId={resultId} />
+        <ResultList id={id} />
         <RemediationTime id={id} resultId={resultId} />
       </div>
     </AppContainer>
