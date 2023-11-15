@@ -45,21 +45,220 @@ export interface ApiError {
 /**
  *
  * @export
- * @interface DomainAttestation
+ * @interface DomainAction
  */
-export interface DomainAttestation {
+export interface DomainAction {
   /**
    *
-   * @type {Array<DomainPart>}
-   * @memberof DomainAttestation
+   * @type {string}
+   * @memberof DomainAction
    */
-  parts?: Array<DomainPart>;
+  date?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAction
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAction
+   */
+  id?: string;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainAction
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainAction
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAction
+   */
+  remarks?: string;
   /**
    *
    * @type {Array<string>}
-   * @memberof DomainAttestation
+   * @memberof DomainAction
    */
-  responsibleParties?: Array<string>;
+  responsiblePartyUuids?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAction
+   */
+  system?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAction
+   */
+  title?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAction
+   */
+  type?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainActor
+ */
+export interface DomainActor {
+  /**
+   *
+   * @type {string}
+   * @memberof DomainActor
+   */
+  description?: string;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainActor
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainActor
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainActor
+   */
+  remarks?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainActor
+   */
+  roleId?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainActor
+   */
+  title?: string;
+  /**
+   *
+   * @type {DomainActorType}
+   * @memberof DomainActor
+   */
+  type?: DomainActorType;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainActor
+   */
+  uuid?: string;
+}
+
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+
+export const DomainActorType = {
+  ActorTypeTool: "tool",
+  ActorTypeAssessmentPlatform: "assessment-platform",
+  ActorTypeParty: "party",
+} as const;
+
+export type DomainActorType = (typeof DomainActorType)[keyof typeof DomainActorType];
+
+/**
+ *
+ * @export
+ * @interface DomainAuthorizationBoundary
+ */
+export interface DomainAuthorizationBoundary {
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAuthorizationBoundary
+   */
+  description?: string;
+  /**
+   * Diagrams is an optional collection of visual representations of the boundary.
+   * @type {Array<DomainDiagram>}
+   * @memberof DomainAuthorizationBoundary
+   */
+  diagrams?: Array<DomainDiagram>;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainAuthorizationBoundary
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainAuthorizationBoundary
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAuthorizationBoundary
+   */
+  remarks?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainAuthorizationBoundary
+   */
+  title?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainBackMatter
+ */
+export interface DomainBackMatter {
+  /**
+   *
+   * @type {Array<DomainResource>}
+   * @memberof DomainBackMatter
+   */
+  resources?: Array<DomainResource>;
+}
+/**
+ *
+ * @export
+ * @interface DomainBase64
+ */
+export interface DomainBase64 {
+  /**
+   * Name of the file before it was encoded as Base64.
+   * @type {string}
+   * @memberof DomainBase64
+   */
+  filename?: string;
+  /**
+   * A label that indicates the nature of a resource.
+   * @type {string}
+   * @memberof DomainBase64
+   */
+  "media-type"?: string;
+  /**
+   * The Base64 encoded value.
+   * @type {string}
+   * @memberof DomainBase64
+   */
+  value?: string;
 }
 /**
  *
@@ -80,66 +279,159 @@ export interface DomainCharacterization {
    */
   links?: Array<DomainLink>;
   /**
-   *
-   * @type {DomainOrigin}
+   * Actors / Tasks Identify the source of the finding, such as a tool, interviewed person, or activity
+   * @type {Array<string>}
    * @memberof DomainCharacterization
    */
-  origin?: DomainOrigin;
+  originActors?: Array<string>;
   /**
    *
    * @type {Array<DomainProperty>}
    * @memberof DomainCharacterization
    */
   props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainCharacterization
+   */
+  relatedTasks?: Array<string>;
 }
 /**
  *
  * @export
- * @interface DomainControlsAndObjectives
+ * @interface DomainCitation
  */
-export interface DomainControlsAndObjectives {
+export interface DomainCitation {
   /**
-   *
-   * @type {DomainSelection}
-   * @memberof DomainControlsAndObjectives
+   * Links associated with the citation.
+   * @type {Array<DomainLink>}
+   * @memberof DomainCitation
    */
-  controlSelections?: DomainSelection;
+  links?: Array<DomainLink>;
+  /**
+   * Properties of the citation.
+   * @type {Array<DomainProperty>}
+   * @memberof DomainCitation
+   */
+  props?: Array<DomainProperty>;
+  /**
+   * A line of citation text.
+   * @type {string}
+   * @memberof DomainCitation
+   */
+  text?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainDataFlow
+ */
+export interface DomainDataFlow {
   /**
    *
    * @type {string}
-   * @memberof DomainControlsAndObjectives
+   * @memberof DomainDataFlow
    */
   description?: string;
   /**
+   * Description is a summary of the system\'s data flow.
+   * @type {Array<DomainDiagram>}
+   * @memberof DomainDataFlow
+   */
+  diagrams?: Array<DomainDiagram>;
+  /**
    *
    * @type {Array<DomainLink>}
-   * @memberof DomainControlsAndObjectives
+   * @memberof DomainDataFlow
    */
   links?: Array<DomainLink>;
   /**
    *
-   * @type {Array<DomainObjectiveSelection>}
-   * @memberof DomainControlsAndObjectives
-   */
-  objectives?: Array<DomainObjectiveSelection>;
-  /**
-   *
    * @type {Array<DomainProperty>}
-   * @memberof DomainControlsAndObjectives
+   * @memberof DomainDataFlow
    */
   props?: Array<DomainProperty>;
   /**
    *
    * @type {string}
-   * @memberof DomainControlsAndObjectives
+   * @memberof DomainDataFlow
    */
   remarks?: string;
   /**
    *
    * @type {string}
-   * @memberof DomainControlsAndObjectives
+   * @memberof DomainDataFlow
    */
   title?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainDiagram
+ */
+export interface DomainDiagram {
+  /**
+   * Caption provides a brief annotation for the diagram.
+   * @type {string}
+   * @memberof DomainDiagram
+   */
+  caption?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainDiagram
+   */
+  description?: string;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainDiagram
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainDiagram
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainDiagram
+   */
+  remarks?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainDiagram
+   */
+  title?: string;
+  /**
+   * Uuid is a machine-oriented, globally unique identifier that can be used to reference this diagram elsewhere in this or other OSCAL instances.
+   * @type {string}
+   * @memberof DomainDiagram
+   */
+  uuid?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainDocumentIdentifier
+ */
+export interface DomainDocumentIdentifier {
+  /**
+   * The document identifier.
+   * @type {string}
+   * @memberof DomainDocumentIdentifier
+   */
+  identifier?: string;
+  /**
+   * Qualifies the kind of document identifier using a URI.
+   * @type {any}
+   * @memberof DomainDocumentIdentifier
+   */
+  scheme?: any;
 }
 /**
  *
@@ -258,7 +550,7 @@ export interface DomainFinding {
    */
   id?: string;
   /**
-   *
+   * ImplementationStatementId Reference to the implementation statement in the SSP to which this finding is related.
    * @type {string}
    * @memberof DomainFinding
    */
@@ -270,11 +562,11 @@ export interface DomainFinding {
    */
   links?: Array<DomainLink>;
   /**
-   *
+   * Actors / Tasks Identify the source of the finding, such as a tool, interviewed person, or activity Maps to the OSCAL \"origins\" property
    * @type {Array<string>}
    * @memberof DomainFinding
    */
-  origins?: Array<string>;
+  originActors?: Array<string>;
   /**
    *
    * @type {Array<DomainProperty>}
@@ -295,22 +587,151 @@ export interface DomainFinding {
   relatedRisks?: Array<string>;
   /**
    *
+   * @type {Array<string>}
+   * @memberof DomainFinding
+   */
+  relatedTasks?: Array<string>;
+  /**
+   *
    * @type {string}
    * @memberof DomainFinding
    */
   remarks?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof DomainFinding
    */
-  target?: Array<string>;
+  target?: string;
   /**
    *
    * @type {string}
    * @memberof DomainFinding
    */
   title?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainImpact
+ */
+export interface DomainImpact {
+  /**
+   *
+   * @type {string}
+   * @memberof DomainImpact
+   */
+  adjustment_justification?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainImpact
+   */
+  base?: string;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainImpact
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainImpact
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainImpact
+   */
+  selected?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainInformationType
+ */
+export interface DomainInformationType {
+  /**
+   *
+   * @type {DomainImpact}
+   * @memberof DomainInformationType
+   */
+  availability_impact?: DomainImpact;
+  /**
+   *
+   * @type {Array<DomainInformationTypeCategorization>}
+   * @memberof DomainInformationType
+   */
+  categorizations?: Array<DomainInformationTypeCategorization>;
+  /**
+   *
+   * @type {DomainImpact}
+   * @memberof DomainInformationType
+   */
+  confidentiality_impact?: DomainImpact;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainInformationType
+   */
+  description?: string;
+  /**
+   *
+   * @type {DomainImpact}
+   * @memberof DomainInformationType
+   */
+  integrity_impact?: DomainImpact;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainInformationType
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainInformationType
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainInformationType
+   */
+  remarks?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainInformationType
+   */
+  title?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainInformationType
+   */
+  uuid?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainInformationTypeCategorization
+ */
+export interface DomainInformationTypeCategorization {
+  /**
+   * NOTE: This part is a bit blurred
+   * @type {Array<string>}
+   * @memberof DomainInformationTypeCategorization
+   */
+  ids?: Array<string>;
+  /**
+   * This is an enum but right now it has only one value: http://doi.org/10.6028/NIST.SP.800-60v2r1
+   * @type {string}
+   * @memberof DomainInformationTypeCategorization
+   */
+  system?: string;
 }
 /**
  *
@@ -352,220 +773,43 @@ export interface DomainLink {
 /**
  *
  * @export
- * @interface DomainLocalDefinition
+ * @interface DomainNetworkArchitecture
  */
-export interface DomainLocalDefinition {
-  /**
-   * Reference to Activity
-   * @type {Array<string>}
-   * @memberof DomainLocalDefinition
-   */
-  activities?: Array<string>;
-  /**
-   * Reference to component.Component
-   * @type {Array<string>}
-   * @memberof DomainLocalDefinition
-   */
-  components?: Array<string>;
-  /**
-   * Reference to ssp.InventoryItem
-   * @type {Array<string>}
-   * @memberof DomainLocalDefinition
-   */
-  inventoryItems?: Array<string>;
-  /**
-   *
-   * @type {Array<DomainObjective>}
-   * @memberof DomainLocalDefinition
-   */
-  objectives?: Array<DomainObjective>;
+export interface DomainNetworkArchitecture {
   /**
    *
    * @type {string}
-   * @memberof DomainLocalDefinition
-   */
-  remarks?: string;
-  /**
-   * Reference to identity.User
-   * @type {Array<string>}
-   * @memberof DomainLocalDefinition
-   */
-  users?: Array<string>;
-}
-/**
- *
- * @export
- * @interface DomainLogEntry
- */
-export interface DomainLogEntry {
-  /**
-   *
-   * @type {string}
-   * @memberof DomainLogEntry
+   * @memberof DomainNetworkArchitecture
    */
   description?: string;
   /**
    *
-   * @type {string}
-   * @memberof DomainLogEntry
+   * @type {Array<DomainDiagram>}
+   * @memberof DomainNetworkArchitecture
    */
-  end?: string;
+  diagrams?: Array<DomainDiagram>;
   /**
    *
    * @type {Array<DomainLink>}
-   * @memberof DomainLogEntry
-   */
-  links?: Array<DomainLink>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof DomainLogEntry
-   */
-  loggedBy?: Array<string>;
-  /**
-   *
-   * @type {Array<DomainProperty>}
-   * @memberof DomainLogEntry
-   */
-  props?: Array<DomainProperty>;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainLogEntry
-   */
-  remarks?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainLogEntry
-   */
-  start?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainLogEntry
-   */
-  timestamp?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainLogEntry
-   */
-  title?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof DomainLogEntry
-   */
-  type?: number;
-}
-/**
- *
- * @export
- * @interface DomainObjective
- */
-export interface DomainObjective {
-  /**
-   *
-   * @type {string}
-   * @memberof DomainObjective
-   */
-  control?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainObjective
-   */
-  description?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainObjective
-   */
-  id?: string;
-  /**
-   *
-   * @type {Array<DomainLink>}
-   * @memberof DomainObjective
-   */
-  links?: Array<DomainLink>;
-  /**
-   *
-   * @type {Array<DomainPart>}
-   * @memberof DomainObjective
-   */
-  parts?: Array<DomainPart>;
-  /**
-   *
-   * @type {Array<DomainProperty>}
-   * @memberof DomainObjective
-   */
-  props?: Array<DomainProperty>;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainObjective
-   */
-  remarks?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainObjective
-   */
-  title?: string;
-}
-/**
- *
- * @export
- * @interface DomainObjectiveSelection
- */
-export interface DomainObjectiveSelection {
-  /**
-   *
-   * @type {string}
-   * @memberof DomainObjectiveSelection
-   */
-  description?: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof DomainObjectiveSelection
-   */
-  exclude?: Array<string>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof DomainObjectiveSelection
-   */
-  include?: Array<string>;
-  /**
-   *
-   * @type {boolean}
-   * @memberof DomainObjectiveSelection
-   */
-  includeAll?: boolean;
-  /**
-   *
-   * @type {Array<DomainLink>}
-   * @memberof DomainObjectiveSelection
+   * @memberof DomainNetworkArchitecture
    */
   links?: Array<DomainLink>;
   /**
    *
    * @type {Array<DomainProperty>}
-   * @memberof DomainObjectiveSelection
+   * @memberof DomainNetworkArchitecture
    */
   props?: Array<DomainProperty>;
   /**
    *
    * @type {string}
-   * @memberof DomainObjectiveSelection
+   * @memberof DomainNetworkArchitecture
    */
   remarks?: string;
   /**
    *
    * @type {string}
-   * @memberof DomainObjectiveSelection
+   * @memberof DomainNetworkArchitecture
    */
   title?: string;
 }
@@ -613,10 +857,28 @@ export interface DomainObservation {
   links?: Array<DomainLink>;
   /**
    *
+   * @type {Array<DomainObservationMethod>}
+   * @memberof DomainObservation
+   */
+  methods?: Array<DomainObservationMethod>;
+  /**
+   * Actors / Tasks Identify the source of the finding, such as a tool, interviewed person, or activity
+   * @type {Array<string>}
+   * @memberof DomainObservation
+   */
+  originActors?: Array<string>;
+  /**
+   *
    * @type {Array<DomainProperty>}
    * @memberof DomainObservation
    */
   props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainObservation
+   */
+  relatedTasks?: Array<string>;
   /**
    *
    * @type {string}
@@ -625,85 +887,70 @@ export interface DomainObservation {
   remarks?: string;
   /**
    *
+   * @type {Array<string>}
+   * @memberof DomainObservation
+   */
+  subjects?: Array<string>;
+  /**
+   *
    * @type {string}
    * @memberof DomainObservation
    */
   title?: string;
+  /**
+   *
+   * @type {Array<DomainObservationType>}
+   * @memberof DomainObservation
+   */
+  types?: Array<DomainObservationType>;
 }
 /**
  *
  * @export
- * @interface DomainOrigin
+ * @enum {string}
  */
-export interface DomainOrigin {
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof DomainOrigin
-   */
-  actors?: Array<string>;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof DomainOrigin
-   */
-  relatedTasks?: Array<string>;
-}
+
+export const DomainObservationMethod = {
+  ObservationMethodExamine: "examine",
+  ObservationMethodInterview: "interview",
+  ObservationMethodTest: "test",
+  ObservationMethodUnknown: "unknown",
+} as const;
+
+export type DomainObservationMethod = (typeof DomainObservationMethod)[keyof typeof DomainObservationMethod];
+
 /**
  *
  * @export
- * @interface DomainPart
+ * @enum {string}
  */
-export interface DomainPart {
-  /**
-   * An optional textual providing a sub-type or characterization of the part\'s name, or a category to which the part belongs.
-   * @type {string}
-   * @memberof DomainPart
-   */
-  class?: string;
-  /**
-   * A unique identifier for the part.
-   * @type {string}
-   * @memberof DomainPart
-   */
-  id?: string;
-  /**
-   *
-   * @type {Array<DomainLink>}
-   * @memberof DomainPart
-   */
-  links?: Array<DomainLink>;
-  /**
-   * A textual label that uniquely identifies the part\'s semantic type, which exists in a value space qualified by the ns.
-   * @type {string}
-   * @memberof DomainPart
-   */
-  name?: string;
-  /**
-   * An optional namespace qualifying the part\'s name. This allows different organizations to associate distinct semantics with the same name.
-   * @type {string}
-   * @memberof DomainPart
-   */
-  ns?: string;
-  /**
-   *
-   * @type {Array<DomainProperty>}
-   * @memberof DomainPart
-   */
-  props?: Array<DomainProperty>;
-  /**
-   * Permits multiple paragraphs, lists, tables etc.
-   * @type {string}
-   * @memberof DomainPart
-   */
-  prose?: string;
-  /**
-   * An optional name given to the part, which may be used by a tool for display and navigation.
-   * @type {string}
-   * @memberof DomainPart
-   */
-  title?: string;
-}
+
+export const DomainObservationType = {
+  ObservationTypeSSPStatementIssue: "ssp-statement-issue",
+  ObservationTypeControlObjective: "control-objective",
+  ObservationTypeMitigation: "mitigation",
+  ObservationTypeFinding: "finding",
+  ObservationTypeHistoric: "historic",
+} as const;
+
+export type DomainObservationType = (typeof DomainObservationType)[keyof typeof DomainObservationType];
+
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+
+export const DomainOperationalStatus = {
+  Disposition: 0,
+  Operational: 1,
+  Other: 2,
+  UnderDevelopment: 3,
+  UnderMajorModification: 4,
+} as const;
+
+export type DomainOperationalStatus = (typeof DomainOperationalStatus)[keyof typeof DomainOperationalStatus];
+
 /**
  *
  * @export
@@ -750,105 +997,179 @@ export interface DomainProperty {
 /**
  *
  * @export
- * @interface DomainResult
+ * @interface DomainResource
  */
-export interface DomainResult {
+export interface DomainResource {
   /**
    *
-   * @type {Array<DomainLogEntry>}
-   * @memberof DomainResult
+   * @type {DomainBase64}
+   * @memberof DomainResource
    */
-  assessmentLogEntries?: Array<DomainLogEntry>;
+  base64?: DomainBase64;
   /**
    *
-   * @type {Array<DomainAttestation>}
-   * @memberof DomainResult
+   * @type {DomainCitation}
+   * @memberof DomainResource
    */
-  attestations?: Array<DomainAttestation>;
+  citation?: DomainCitation;
+  /**
+   * An optional short summary of the resource.
+   * @type {string}
+   * @memberof DomainResource
+   */
+  description?: string;
+  /**
+   * Document identifiers associated with the resource.
+   * @type {Array<DomainDocumentIdentifier>}
+   * @memberof DomainResource
+   */
+  "document-ids"?: Array<DomainDocumentIdentifier>;
+  /**
+   * Properties of the resource.
+   * @type {Array<DomainProperty>}
+   * @memberof DomainResource
+   */
+  props?: Array<DomainProperty>;
+  /**
+   * Remarks about the resource.
+   * @type {string}
+   * @memberof DomainResource
+   */
+  remarks?: string;
+  /**
+   * Related links of the resource.
+   * @type {Array<DomainLink>}
+   * @memberof DomainResource
+   */
+  rlinks?: Array<DomainLink>;
+  /**
+   * An optional name given to the resource.
+   * @type {string}
+   * @memberof DomainResource
+   */
+  title?: string;
+  /**
+   * A unique identifier for a resource.
+   * @type {string}
+   * @memberof DomainResource
+   */
+  uuid?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainResponse
+ */
+export interface DomainResponse {
   /**
    *
    * @type {string}
-   * @memberof DomainResult
+   * @memberof DomainResponse
    */
   description?: string;
   /**
    *
    * @type {string}
-   * @memberof DomainResult
-   */
-  end?: string;
-  /**
-   *
-   * @type {Array<DomainFinding>}
-   * @memberof DomainResult
-   */
-  findings?: Array<DomainFinding>;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainResult
+   * @memberof DomainResponse
    */
   id?: string;
   /**
+   * Identifies whether this is a recommendation, such as from an assessor or tool, or an actual plan accepted by the system owner. One of: recommendation, planned, completed
+   * @type {string}
+   * @memberof DomainResponse
+   */
+  lifecycle?: string;
+  /**
    *
    * @type {Array<DomainLink>}
-   * @memberof DomainResult
+   * @memberof DomainResponse
+   */
+  links?: Array<DomainLink>;
+  /**
+   * Actors / Tasks Identify the source of the finding, such as a tool, interviewed person, or activity
+   * @type {Array<string>}
+   * @memberof DomainResponse
+   */
+  originActors?: Array<string>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainResponse
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainResponse
+   */
+  relatedTasks?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainResponse
+   */
+  title?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainRevision
+ */
+export interface DomainRevision {
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRevision
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRevision
+   */
+  lastModified?: string;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainRevision
    */
   links?: Array<DomainLink>;
   /**
    *
-   * @type {DomainLocalDefinition}
-   * @memberof DomainResult
-   */
-  localDefinitions?: DomainLocalDefinition;
-  /**
-   *
-   * @type {Array<DomainObservation>}
-   * @memberof DomainResult
-   */
-  observations?: Array<DomainObservation>;
-  /**
-   *
    * @type {string}
-   * @memberof DomainResult
+   * @memberof DomainRevision
    */
-  potato?: string;
+  oscalVersion?: string;
   /**
    *
    * @type {Array<DomainProperty>}
-   * @memberof DomainResult
+   * @memberof DomainRevision
    */
   props?: Array<DomainProperty>;
   /**
    *
    * @type {string}
-   * @memberof DomainResult
+   * @memberof DomainRevision
+   */
+  published?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRevision
    */
   remarks?: string;
   /**
    *
-   * @type {Array<DomainControlsAndObjectives>}
-   * @memberof DomainResult
-   */
-  reviewedControls?: Array<DomainControlsAndObjectives>;
-  /**
-   *
-   * @type {Array<DomainRisk>}
-   * @memberof DomainResult
-   */
-  risks?: Array<DomainRisk>;
-  /**
-   *
    * @type {string}
-   * @memberof DomainResult
-   */
-  start?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof DomainResult
+   * @memberof DomainRevision
    */
   title?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRevision
+   */
+  version?: string;
 }
 /**
  *
@@ -869,7 +1190,7 @@ export interface DomainRisk {
    */
   deadline?: string;
   /**
-   *
+   * A human-readable summary of the identified risk, to include a statement of how the risk impacts the system.
    * @type {string}
    * @memberof DomainRisk
    */
@@ -888,47 +1209,430 @@ export interface DomainRisk {
   links?: Array<DomainLink>;
   /**
    *
+   * @type {Array<string>}
+   * @memberof DomainRisk
+   */
+  mitigatingFactors?: Array<string>;
+  /**
+   * Actors / Tasks Identify the source of the finding, such as a tool, interviewed person, or activity
+   * @type {Array<string>}
+   * @memberof DomainRisk
+   */
+  originActors?: Array<string>;
+  /**
+   *
    * @type {Array<DomainProperty>}
    * @memberof DomainRisk
    */
   props?: Array<DomainProperty>;
   /**
    *
+   * @type {Array<string>}
+   * @memberof DomainRisk
+   */
+  relatedObservations?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainRisk
+   */
+  relatedTasks?: Array<string>;
+  /**
+   *
+   * @type {Array<DomainResponse>}
+   * @memberof DomainRisk
+   */
+  remediations?: Array<DomainResponse>;
+  /**
+   *
+   * @type {Array<DomainRiskLogEntry>}
+   * @memberof DomainRisk
+   */
+  riskLog?: Array<DomainRiskLogEntry>;
+  /**
+   * A summary of impact for how the risk affects the system.
    * @type {string}
    * @memberof DomainRisk
    */
-  remarks?: string;
+  statement?: string;
+  /**
+   *
+   * @type {DomainRiskStatus}
+   * @memberof DomainRisk
+   */
+  status?: DomainRiskStatus;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainRisk
+   */
+  threats?: Array<string>;
+  /**
+   * The title for this risk.
+   * @type {string}
+   * @memberof DomainRisk
+   */
+  title?: string;
+}
+
+/**
+ *
+ * @export
+ * @interface DomainRiskLogEntry
+ */
+export interface DomainRiskLogEntry {
   /**
    *
    * @type {string}
-   * @memberof DomainRisk
+   * @memberof DomainRiskLogEntry
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRiskLogEntry
+   */
+  end?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRiskLogEntry
+   */
+  id?: string;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainRiskLogEntry
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {DomainActor}
+   * @memberof DomainRiskLogEntry
+   */
+  loggedBy?: DomainActor;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainRiskLogEntry
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRiskLogEntry
+   */
+  start?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainRiskLogEntry
    */
   title?: string;
 }
 /**
  *
  * @export
- * @interface DomainSelection
+ * @enum {string}
  */
-export interface DomainSelection {
+
+export const DomainRiskStatus = {
+  RiskStatusOpen: "open",
+  RiskStatusInvestigating: "investigating",
+  RiskStatusRemediating: "remediating",
+  RiskStatusDeviationRequested: "deviation-requested",
+  RiskStatusDeviationApproved: "deviation-approved",
+  RiskStatusClosed: "closed",
+} as const;
+
+export type DomainRiskStatus = (typeof DomainRiskStatus)[keyof typeof DomainRiskStatus];
+
+/**
+ *
+ * @export
+ * @interface DomainSecurityImpactLevel
+ */
+export interface DomainSecurityImpactLevel {
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSecurityImpactLevel
+   */
+  objective_availability?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSecurityImpactLevel
+   */
+  objective_confidentiality?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSecurityImpactLevel
+   */
+  objective_integrity?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainSystemCharacteristics
+ */
+export interface DomainSystemCharacteristics {
+  /**
+   *
+   * @type {Array<DomainAction>}
+   * @memberof DomainSystemCharacteristics
+   */
+  actions?: Array<DomainAction>;
+  /**
+   *
+   * @type {DomainAuthorizationBoundary}
+   * @memberof DomainSystemCharacteristics
+   */
+  authorization_boundary?: DomainAuthorizationBoundary;
   /**
    *
    * @type {Array<string>}
-   * @memberof DomainSelection
+   * @memberof DomainSystemCharacteristics
    */
-  exclude?: Array<string>;
+  control_implementation?: Array<string>;
+  /**
+   *
+   * @type {DomainDataFlow}
+   * @memberof DomainSystemCharacteristics
+   */
+  data_flow?: DomainDataFlow;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  date_authorized?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  description?: string;
   /**
    *
    * @type {Array<string>}
-   * @memberof DomainSelection
+   * @memberof DomainSystemCharacteristics
    */
-  include?: Array<string>;
+  import_profile?: Array<string>;
   /**
    *
-   * @type {boolean}
-   * @memberof DomainSelection
+   * @type {Array<DomainLink>}
+   * @memberof DomainSystemCharacteristics
    */
-  includeAll?: boolean;
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {DomainNetworkArchitecture}
+   * @memberof DomainSystemCharacteristics
+   */
+  network_architecture?: DomainNetworkArchitecture;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemCharacteristics
+   */
+  partyUuids?: Array<string>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainSystemCharacteristics
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  remarks?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemCharacteristics
+   */
+  responsiblePartyUuids?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemCharacteristics
+   */
+  responsible_parties?: Array<string>;
+  /**
+   *
+   * @type {Array<DomainRevision>}
+   * @memberof DomainSystemCharacteristics
+   */
+  revisions?: Array<DomainRevision>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemCharacteristics
+   */
+  roleUuids?: Array<string>;
+  /**
+   *
+   * @type {DomainSecurityImpactLevel}
+   * @memberof DomainSystemCharacteristics
+   */
+  security_impact_level?: DomainSecurityImpactLevel;
+  /**
+   * The overall information system sensitivity categorization, such as defined by FIPS-199.
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  security_sensitivity_level?: string;
+  /**
+   *
+   * @type {DomainOperationalStatus}
+   * @memberof DomainSystemCharacteristics
+   */
+  status?: DomainOperationalStatus;
+  /**
+   * One of http://fedramp.gov/ns/oscal, https://fedramp.gov\", http://ietf.org/rfc/rfc4122\", https://ietf.org/rfc/rfc4122
+   * @type {Array<string>}
+   * @memberof DomainSystemCharacteristics
+   */
+  system_ids?: Array<string>;
+  /**
+   *
+   * @type {DomainSystemInformation}
+   * @memberof DomainSystemCharacteristics
+   */
+  system_information?: DomainSystemInformation;
+  /**
+   * The full name of the system.
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  system_name?: string;
+  /**
+   * A short name for the system, such as an acronym, that is suitable for display in a data table or summary list.
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  system_name_short?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  title?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemCharacteristics
+   */
+  uuid?: string;
+}
+
+/**
+ *
+ * @export
+ * @interface DomainSystemInformation
+ */
+export interface DomainSystemInformation {
+  /**
+   * Contains details about one information type that is stored, processed, or transmitted by the system, such as privacy information, and those defined in NIST SP 800-60.
+   * @type {Array<DomainInformationType>}
+   * @memberof DomainSystemInformation
+   */
+  information_types?: Array<DomainInformationType>;
+  /**
+   *
+   * @type {Array<DomainLink>}
+   * @memberof DomainSystemInformation
+   */
+  links?: Array<DomainLink>;
+  /**
+   *
+   * @type {Array<DomainProperty>}
+   * @memberof DomainSystemInformation
+   */
+  props?: Array<DomainProperty>;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemInformation
+   */
+  uuid?: string;
+}
+/**
+ *
+ * @export
+ * @interface DomainSystemSecurityPlan
+ */
+export interface DomainSystemSecurityPlan {
+  /**
+   *
+   * @type {Array<DomainAction>}
+   * @memberof DomainSystemSecurityPlan
+   */
+  actions?: Array<DomainAction>;
+  /**
+   *
+   * @type {DomainBackMatter}
+   * @memberof DomainSystemSecurityPlan
+   */
+  backmatter?: DomainBackMatter;
+  /**
+   * Reference to the control implementation
+   * @type {Array<string>}
+   * @memberof DomainSystemSecurityPlan
+   */
+  control_implementation?: Array<string>;
+  /**
+   * Reference to a profile
+   * @type {string}
+   * @memberof DomainSystemSecurityPlan
+   */
+  import_profile?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemSecurityPlan
+   */
+  partyUuids?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemSecurityPlan
+   */
+  responsiblePartyUuids?: Array<string>;
+  /**
+   *
+   * @type {Array<DomainRevision>}
+   * @memberof DomainSystemSecurityPlan
+   */
+  revisions?: Array<DomainRevision>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof DomainSystemSecurityPlan
+   */
+  roleUuids?: Array<string>;
+  /**
+   *
+   * @type {DomainSystemCharacteristics}
+   * @memberof DomainSystemSecurityPlan
+   */
+  system_characteristics?: DomainSystemCharacteristics;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemSecurityPlan
+   */
+  title?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof DomainSystemSecurityPlan
+   */
+  uuid?: string;
 }
 /**
  *
@@ -1211,6 +1915,25 @@ export interface HandlerIdResponse {
    * @memberof HandlerIdResponse
    */
   id?: string;
+}
+/**
+ *
+ * @export
+ * @interface HandlerUpdateSSPRequest
+ */
+export interface HandlerUpdateSSPRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof HandlerUpdateSSPRequest
+   */
+  description?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof HandlerUpdateSSPRequest
+   */
+  title?: string;
 }
 /**
  *
@@ -1718,37 +2441,6 @@ export const PlanApiAxiosParamCreator = function (configuration?: Configuration)
       };
     },
     /**
-     * Return the assessment results related with the plan with the given ID.
-     * @summary Return the assessment results
-     * @param {string} id Plan ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    planIdResultsGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-      // verify required parameter 'id' is not null or undefined
-      assertParamExists("planIdResultsGet", "id", id);
-      const localVarPath = `/plan/{id}/results`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = { method: "GET", ...baseOptions, ...options };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
      * Return the compliance over time of the result with the given ID.
      * @summary Return the compliance over time
      * @param {string} id Plan ID
@@ -2194,20 +2886,6 @@ export const PlanApiFp = function (configuration?: Configuration) {
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
-     * Return the assessment results related with the plan with the given ID.
-     * @summary Return the assessment results
-     * @param {string} id Plan ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async planIdResultsGet(
-      id: string,
-      options?: AxiosRequestConfig,
-    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DomainResult>>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.planIdResultsGet(id, options);
-      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-    },
-    /**
      * Return the compliance over time of the result with the given ID.
      * @summary Return the compliance over time
      * @param {string} id Plan ID
@@ -2409,16 +3087,6 @@ export const PlanApiFactory = function (configuration?: Configuration, basePath?
       return localVarFp.planIdActivatePut(id, options).then(request => request(axios, basePath));
     },
     /**
-     * Return the assessment results related with the plan with the given ID.
-     * @summary Return the assessment results
-     * @param {string} id Plan ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    planIdResultsGet(id: string, options?: any): AxiosPromise<Array<DomainResult>> {
-      return localVarFp.planIdResultsGet(id, options).then(request => request(axios, basePath));
-    },
-    /**
      * Return the compliance over time of the result with the given ID.
      * @summary Return the compliance over time
      * @param {string} id Plan ID
@@ -2594,20 +3262,6 @@ export class PlanApi extends BaseAPI {
   }
 
   /**
-   * Return the assessment results related with the plan with the given ID.
-   * @summary Return the assessment results
-   * @param {string} id Plan ID
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof PlanApi
-   */
-  public planIdResultsGet(id: string, options?: AxiosRequestConfig) {
-    return PlanApiFp(this.configuration)
-      .planIdResultsGet(id, options)
-      .then(request => request(this.axios, this.basePath));
-  }
-
-  /**
    * Return the compliance over time of the result with the given ID.
    * @summary Return the compliance over time
    * @param {string} id Plan ID
@@ -2759,6 +3413,334 @@ export class PlanApi extends BaseAPI {
   public planPost(handlerCreatePlanRequest: HandlerCreatePlanRequest, options?: AxiosRequestConfig) {
     return PlanApiFp(this.configuration)
       .planPost(handlerCreatePlanRequest, options)
+      .then(request => request(this.axios, this.basePath));
+  }
+}
+
+/**
+ * SSPApi - axios parameter creator
+ * @export
+ */
+export const SSPApiAxiosParamCreator = function (configuration?: Configuration) {
+  return {
+    /**
+     * List all SSP
+     * @summary List all SSPs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/api/ssp`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: "GET", ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Delete an SSP with the given ID
+     * @summary Delete an SSP
+     * @param {string} id SSP ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      assertParamExists("apiSspIdDelete", "id", id);
+      const localVarPath = `/api/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: "DELETE", ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Get an SSP by its ID
+     * @summary Get an SSP by ID
+     * @param {string} id SSP ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      assertParamExists("apiSspIdGet", "id", id);
+      const localVarPath = `/api/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: "GET", ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     * Update an SSP with the given ID
+     * @summary Update an SSP
+     * @param {string} id SSP ID
+     * @param {HandlerUpdateSSPRequest} handlerUpdateSSPRequest SSP to update
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspIdPut: async (
+      id: string,
+      handlerUpdateSSPRequest: HandlerUpdateSSPRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'id' is not null or undefined
+      assertParamExists("apiSspIdPut", "id", id);
+      // verify required parameter 'handlerUpdateSSPRequest' is not null or undefined
+      assertParamExists("apiSspIdPut", "handlerUpdateSSPRequest", handlerUpdateSSPRequest);
+      const localVarPath = `/api/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: "PUT", ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        handlerUpdateSSPRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+  };
+};
+
+/**
+ * SSPApi - functional programming interface
+ * @export
+ */
+export const SSPApiFp = function (configuration?: Configuration) {
+  const localVarAxiosParamCreator = SSPApiAxiosParamCreator(configuration);
+  return {
+    /**
+     * List all SSP
+     * @summary List all SSPs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async apiSspGet(
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainSystemSecurityPlan>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspGet(options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Delete an SSP with the given ID
+     * @summary Delete an SSP
+     * @param {string} id SSP ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async apiSspIdDelete(
+      id: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspIdDelete(id, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Get an SSP by its ID
+     * @summary Get an SSP by ID
+     * @param {string} id SSP ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async apiSspIdGet(
+      id: string,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainSystemSecurityPlan>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspIdGet(id, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Update an SSP with the given ID
+     * @summary Update an SSP
+     * @param {string} id SSP ID
+     * @param {HandlerUpdateSSPRequest} handlerUpdateSSPRequest SSP to update
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async apiSspIdPut(
+      id: string,
+      handlerUpdateSSPRequest: HandlerUpdateSSPRequest,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainSystemSecurityPlan>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspIdPut(id, handlerUpdateSSPRequest, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+  };
+};
+
+/**
+ * SSPApi - factory interface
+ * @export
+ */
+export const SSPApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+  const localVarFp = SSPApiFp(configuration);
+  return {
+    /**
+     * List all SSP
+     * @summary List all SSPs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspGet(options?: any): AxiosPromise<DomainSystemSecurityPlan> {
+      return localVarFp.apiSspGet(options).then(request => request(axios, basePath));
+    },
+    /**
+     * Delete an SSP with the given ID
+     * @summary Delete an SSP
+     * @param {string} id SSP ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspIdDelete(id: string, options?: any): AxiosPromise<string> {
+      return localVarFp.apiSspIdDelete(id, options).then(request => request(axios, basePath));
+    },
+    /**
+     * Get an SSP by its ID
+     * @summary Get an SSP by ID
+     * @param {string} id SSP ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspIdGet(id: string, options?: any): AxiosPromise<DomainSystemSecurityPlan> {
+      return localVarFp.apiSspIdGet(id, options).then(request => request(axios, basePath));
+    },
+    /**
+     * Update an SSP with the given ID
+     * @summary Update an SSP
+     * @param {string} id SSP ID
+     * @param {HandlerUpdateSSPRequest} handlerUpdateSSPRequest SSP to update
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    apiSspIdPut(
+      id: string,
+      handlerUpdateSSPRequest: HandlerUpdateSSPRequest,
+      options?: any,
+    ): AxiosPromise<DomainSystemSecurityPlan> {
+      return localVarFp.apiSspIdPut(id, handlerUpdateSSPRequest, options).then(request => request(axios, basePath));
+    },
+  };
+};
+
+/**
+ * SSPApi - object-oriented interface
+ * @export
+ * @class SSPApi
+ * @extends {BaseAPI}
+ */
+export class SSPApi extends BaseAPI {
+  /**
+   * List all SSP
+   * @summary List all SSPs
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof SSPApi
+   */
+  public apiSspGet(options?: AxiosRequestConfig) {
+    return SSPApiFp(this.configuration)
+      .apiSspGet(options)
+      .then(request => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Delete an SSP with the given ID
+   * @summary Delete an SSP
+   * @param {string} id SSP ID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof SSPApi
+   */
+  public apiSspIdDelete(id: string, options?: AxiosRequestConfig) {
+    return SSPApiFp(this.configuration)
+      .apiSspIdDelete(id, options)
+      .then(request => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Get an SSP by its ID
+   * @summary Get an SSP by ID
+   * @param {string} id SSP ID
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof SSPApi
+   */
+  public apiSspIdGet(id: string, options?: AxiosRequestConfig) {
+    return SSPApiFp(this.configuration)
+      .apiSspIdGet(id, options)
+      .then(request => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Update an SSP with the given ID
+   * @summary Update an SSP
+   * @param {string} id SSP ID
+   * @param {HandlerUpdateSSPRequest} handlerUpdateSSPRequest SSP to update
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof SSPApi
+   */
+  public apiSspIdPut(id: string, handlerUpdateSSPRequest: HandlerUpdateSSPRequest, options?: AxiosRequestConfig) {
+    return SSPApiFp(this.configuration)
+      .apiSspIdPut(id, handlerUpdateSSPRequest, options)
       .then(request => request(this.axios, this.basePath));
   }
 }

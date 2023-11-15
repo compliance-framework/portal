@@ -49,7 +49,7 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
               id: `${finding.id}`,
               compliant: true, // TODO: calculate
               title: `${finding.title}`,
-              origin: `${finding.origins?.join(", ")}`,
+              origin: `TODO`,
               activityTitle: `TODO`,
               description: `${finding.description}`,
               observations: finding.relatedObservations?.length ?? 0,
