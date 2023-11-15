@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 interface ImportMetaEnv {
-  readonly VITE_CONFIGURATION_SERVICE_BASE_PATH: string;
+  readonly VITE_CONFIGURATION_SERVICE_URL: string;
   // more env variables...
 }
 
