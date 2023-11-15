@@ -10,3 +10,7 @@
 4. Make sure the configuration service is running.
 5. Run dev command `pnpm dev`
 6. It will show you what to open in terminal.
+
+# Config
+
+Configuration is done via vite env variables. See [here](https://vitejs.dev/guide/env-and-mode.html) for how these work.
