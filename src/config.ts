@@ -1,7 +1,7 @@
 import * as configurationService from "./services/configuration-service";
 
 export const ConfigurationApiConfig = new configurationService.Configuration({
-  basePath: import.meta.env.VITE_CONFIGURATION_SERVICE_URL,
+  basePath: "http://localhost:8080/api",
 });
 
 export const API = {
