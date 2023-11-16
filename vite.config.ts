@@ -9,4 +9,10 @@ export default defineConfig({
     globals: true,
     setupFiles: "./tests/setup.ts",
   },
+  preview: {
+    cors: false,
+    host: "0.0.0.0",
+    port: 8081,
+    strictPort: true,
+  },
 });
