@@ -56,7 +56,7 @@ export class BaseAPI {
   ) {
     if (configuration) {
       this.configuration = configuration;
-      this.basePath = configuration.basePath
+      this.basePath = configuration.basePath || this.basePath;
     }
   }
 }
