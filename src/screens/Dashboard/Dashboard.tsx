@@ -5,6 +5,7 @@ import { AppContainer } from "../../components/AppContainer/AppContainer";
 import { ComplianceOverTime } from "../PlanResults/ComplianceOverTime";
 import { ComplianceStatusByTargets } from "../PlanResults/ComplianceStatusByTargets/ComplianceStatusByTargets";
 import { FindingList } from "../PlanResults/FindingList";
+import { ObservationList } from "../PlanResults/ObservationList";
 import { Summary } from "../PlanResults/PlanResultSummary/Summary";
 
 interface DashboardProps {
@@ -19,6 +20,7 @@ export const Dashboard = observer<DashboardProps>(() => {
         <Summary id={id} resultId={resultId} />
         <ComplianceOverTime id={id} resultId={resultId} />
         <ComplianceStatusByTargets id={id} resultId={resultId} />
+        <ObservationList id={id} resultId={resultId} />
         <FindingList id={id} resultId={resultId} />
       </div>
     </AppContainer>

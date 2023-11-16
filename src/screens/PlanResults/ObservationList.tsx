@@ -6,26 +6,24 @@ import { WidgetContent } from "../../components/Common/WidgetContent";
 import { API } from "../../config";
 import * as configurationService from "../../services/configuration-service";
 
-interface Finding {
+interface Observation {
   id: string;
   compliant: boolean;
   title: string;
   activityTitle?: string;
   origin: string;
   description: string;
-  observations: number;
-  risks: number;
 }
 
-interface FindingListProps {
+interface ObservationListProps {
   id: string;
   resultId: string;
 }
 
-export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
+export const ObservationList = observer<ObservationListProps>(({ id, resultId }) => {
   const { t } = useTranslation();
 
-  console.log("render findings");
+  console.log("render observations");
 
   const toolbar = (
     <a href={""} className="underline">
@@ -33,10 +31,10 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
     </a>
   );
 
-  const [data, setData] = useState<configurationService.DomainFinding[] | null>(null);
+  const [data, setData] = useState<configurationService.DomainObservation[] | null>(null);
   useEffect(() => {
     (async () => {
-      const response = await API.configurationService.plan.planIdResultsResultIdFindingsGet(id, resultId);
+      const response = await API.configurationService.plan.planIdResultsResultIdObservationsGet(id, resultId);
       setData(response.data);
     })();
   }, [id, resultId]);
@@ -45,15 +43,13 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
     () =>
       data
         ? data.map(
-            (finding): Finding => ({
-              id: `${finding.id}`,
+            (observation): Observation => ({
+              id: `${observation.id}`,
               compliant: true, // TODO: calculate
-              title: `${finding.title}`,
+              title: `${observation.title}`,
               origin: `TODO`,
               activityTitle: `TODO`,
-              description: `${finding.description}`,
-              observations: finding.relatedObservations?.length ?? 0,
-              risks: finding.relatedRisks?.length ?? 0,
+              description: `${observation.description}`,
             }),
           )
         : [],
@@ -61,7 +57,7 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
   );
 
   return (
-    <Widget title={t("widgets.assessment.finding.list")} toolbar={toolbar}>
+    <Widget title={t("widgets.assessment.observation.list")} toolbar={toolbar}>
       <WidgetContent>
         <div className="flex flex-col">
           {items.map(item => (
@@ -74,10 +70,10 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
                 <span className="text-sm">Origin: </span>
                 <span className="text-lg text-bright">{item.origin}</span>
               </div>
-              <div className="flex w-64 flex-col text-right">
+              {/* <div className="flex w-64 flex-col text-right">
                 <a className="text-neutral underline"> Related {item.observations} Observation(s)</a>
                 <a className="text-high underline"> Related {item.risks} Risks(s)</a>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

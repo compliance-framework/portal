@@ -17,6 +17,9 @@ export default {
         finding: {
           list: "Findings",
         },
+        observation: {
+          list: "Observations",
+        },
       },
     },
   },
