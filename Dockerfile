@@ -7,5 +7,5 @@ COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpm build
-EXPOSE 4173
-CMD pnpm preview --host 
+EXPOSE 8081
+CMD pnpm preview --host --port 8081
