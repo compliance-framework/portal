@@ -13,8 +13,6 @@ interface Finding {
   activityTitle?: string;
   origin: string;
   description: string;
-  observations: number;
-  risks: number;
 }
 
 interface FindingListProps {
@@ -33,10 +31,10 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
     </a>
   );
 
-  const [data, setData] = useState<configurationService.DomainFinding[] | null>(null);
+  const [data, setData] = useState<configurationService.DomainObservation[] | null>(null);
   useEffect(() => {
     (async () => {
-      const response = await API.configurationService.plan.planIdResultsResultIdFindingsGet(id, resultId);
+      const response = await API.configurationService.plan.planIdResultsResultIdObservationsGet(id, resultId);
       setData(response.data);
     })();
   }, [id, resultId]);
@@ -52,8 +50,6 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
               origin: `TODO`,
               activityTitle: `TODO`,
               description: `${finding.description}`,
-              observations: finding.relatedObservations?.length ?? 0,
-              risks: finding.relatedRisks?.length ?? 0,
             }),
           )
         : [],
@@ -74,10 +70,10 @@ export const FindingList = observer<FindingListProps>(({ id, resultId }) => {
                 <span className="text-sm">Origin: </span>
                 <span className="text-lg text-bright">{item.origin}</span>
               </div>
-              <div className="flex w-64 flex-col text-right">
+              {/* <div className="flex w-64 flex-col text-right">
                 <a className="text-neutral underline"> Related {item.observations} Observation(s)</a>
                 <a className="text-high underline"> Related {item.risks} Risks(s)</a>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
