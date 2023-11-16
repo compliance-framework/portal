@@ -1,3 +1,3 @@
 export default {
-  "**/*.{ts,tsx}": ["organize-imports-cli", "pnpm run lint", "pnpm run format:write"],
+  "**/*.{ts,tsx}": ["pnpm run organize-imports", "pnpm run lint", "pnpm run format:write"],
 };

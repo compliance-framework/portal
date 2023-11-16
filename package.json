@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "organise-imports": "organize-imports-cli tsconfig.json",
+    "organize-imports": "organize-imports-cli tsconfig.json",
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install",
