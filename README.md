@@ -11,6 +11,14 @@
 5. Run dev command `pnpm dev`
 6. It will show you what to open in terminal.
 
+# Services
+
+Services should be auto-generated from locally running swagger using `pnpm gen`
+
+**Do not update (will be overwritten):**
+
+- ./src/services/configuration-service
+
 # Config
 
 Configuration is done via vite env variables. See [here](https://vitejs.dev/guide/env-and-mode.html) for how these work.
