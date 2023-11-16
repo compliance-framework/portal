@@ -1,5 +1,11 @@
-import { PropsWithChildren } from "react";
+import { forwardRef, PropsWithChildren } from "react";
 
-export function WidgetContent({ children, className }: PropsWithChildren<{ className?: string }>) {
-  return <div className={`m-2 ${className}`}>{children}</div>;
-}
+type WidgetContentProps = PropsWithChildren<{ className?: string }>;
+
+export const WidgetContent = forwardRef<HTMLDivElement, WidgetContentProps>(({ children, className }, ref) => {
+  return (
+    <div ref={ref} className={`m-2 ${className}`}>
+      {children}
+    </div>
+  );
+});

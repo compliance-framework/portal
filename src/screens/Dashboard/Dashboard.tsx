@@ -17,9 +17,9 @@ export const Dashboard = observer<DashboardProps>(() => {
     <AppContainer>
       <div className="m-0 grid grid-cols-2 gap-2 p-0">
         <Summary id={id} resultId={resultId} />
+        <ComplianceOverTime id={id} resultId={resultId} />
         <ComplianceStatusByTargets id={id} resultId={resultId} />
         <FindingList id={id} resultId={resultId} />
-        <ComplianceOverTime id={id} resultId={resultId} />
       </div>
     </AppContainer>
   );
