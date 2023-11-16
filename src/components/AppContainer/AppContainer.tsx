@@ -9,7 +9,7 @@ interface AppContainerProps {
 
 export const AppContainer = observer<AppContainerProps>(({ children }) => {
   return (
-    <div className="flex h-screen w-screen flex-row space-x-2 bg-base-300">
+    <div className="flex h-screen w-screen flex-row space-x-2 overflow-y-scroll bg-base-200">
       <Drawer />
       <section className="flex flex-grow flex-col">
         <Header />

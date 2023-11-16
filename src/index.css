@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap");
 
+@layer base {
+  h1 {
+    @apply mb-2 text-3xl text-bright;
+  }
+  h2 {
+    @apply mb-2 text-xl text-bright;
+  }
+  a {
+    @apply text-neutral underline-offset-2;
+  }
+  :root,
+  #root,
+  html,
+  body {
+    @apply bg-base-300;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

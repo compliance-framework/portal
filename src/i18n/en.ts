@@ -10,6 +10,17 @@ export default {
     },
     widgets: {
       summary: "Summary",
+      assessment: {
+        result: {
+          list: "Assessment Results",
+        },
+        finding: {
+          list: "Findings",
+        },
+        observation: {
+          list: "Observations",
+        },
+      },
     },
   },
 };

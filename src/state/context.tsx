@@ -1,4 +1,4 @@
-import { PropsWithChildren, createContext } from "react";
+import { createContext, PropsWithChildren } from "react";
 import { Store } from "./store";
 
 const store = Store.create({});

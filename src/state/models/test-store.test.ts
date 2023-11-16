@@ -1,6 +1,5 @@
-import { TestStore } from "./test-store";
-
 import { describe, expect, it } from "vitest";
+import { TestStore } from "./test-store";
 
 describe("TestStore", () => {
   it("TestStore to be initialised", () => {

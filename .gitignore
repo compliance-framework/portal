@@ -28,3 +28,11 @@ dist-ssr
 
 # Test
 coverage/*
+
+# TS watch stuff
+vite.config.d.ts
+vite.config.js
+*.tsbuildinfo
+
+# Codegen temp file
+openapi.json
