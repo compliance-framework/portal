@@ -3429,8 +3429,8 @@ export const SSPApiAxiosParamCreator = function (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-      const localVarPath = `/api/ssp`;
+    sspGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+      const localVarPath = `/ssp`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -3458,10 +3458,10 @@ export const SSPApiAxiosParamCreator = function (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    sspIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
-      assertParamExists("apiSspIdDelete", "id", id);
-      const localVarPath = `/api/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
+      assertParamExists("sspIdDelete", "id", id);
+      const localVarPath = `/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -3489,10 +3489,10 @@ export const SSPApiAxiosParamCreator = function (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+    sspIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
-      assertParamExists("apiSspIdGet", "id", id);
-      const localVarPath = `/api/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
+      assertParamExists("sspIdGet", "id", id);
+      const localVarPath = `/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -3521,16 +3521,16 @@ export const SSPApiAxiosParamCreator = function (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspIdPut: async (
+    sspIdPut: async (
       id: string,
       handlerUpdateSSPRequest: HandlerUpdateSSPRequest,
       options: AxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'id' is not null or undefined
-      assertParamExists("apiSspIdPut", "id", id);
+      assertParamExists("sspIdPut", "id", id);
       // verify required parameter 'handlerUpdateSSPRequest' is not null or undefined
-      assertParamExists("apiSspIdPut", "handlerUpdateSSPRequest", handlerUpdateSSPRequest);
-      const localVarPath = `/api/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
+      assertParamExists("sspIdPut", "handlerUpdateSSPRequest", handlerUpdateSSPRequest);
+      const localVarPath = `/ssp/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(id)));
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
       let baseOptions;
@@ -3558,6 +3558,47 @@ export const SSPApiAxiosParamCreator = function (configuration?: Configuration) 
         options: localVarRequestOptions,
       };
     },
+    /**
+     * Create an SSP with the given title
+     * @summary Create an SSP
+     * @param {HandlerCreateSSPRequest} handlerCreateSSPRequest SSP to add
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sspPost: async (
+      handlerCreateSSPRequest: HandlerCreateSSPRequest,
+      options: AxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'handlerCreateSSPRequest' is not null or undefined
+      assertParamExists("sspPost", "handlerCreateSSPRequest", handlerCreateSSPRequest);
+      const localVarPath = `/ssp`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = { method: "POST", ...baseOptions, ...options };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        handlerCreateSSPRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
   };
 };
 
@@ -3574,10 +3615,10 @@ export const SSPApiFp = function (configuration?: Configuration) {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async apiSspGet(
+    async sspGet(
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainSystemSecurityPlan>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspGet(options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.sspGet(options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -3587,11 +3628,11 @@ export const SSPApiFp = function (configuration?: Configuration) {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async apiSspIdDelete(
+    async sspIdDelete(
       id: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspIdDelete(id, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.sspIdDelete(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -3601,11 +3642,11 @@ export const SSPApiFp = function (configuration?: Configuration) {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async apiSspIdGet(
+    async sspIdGet(
       id: string,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainSystemSecurityPlan>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspIdGet(id, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.sspIdGet(id, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
     /**
@@ -3616,12 +3657,26 @@ export const SSPApiFp = function (configuration?: Configuration) {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async apiSspIdPut(
+    async sspIdPut(
       id: string,
       handlerUpdateSSPRequest: HandlerUpdateSSPRequest,
       options?: AxiosRequestConfig,
     ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainSystemSecurityPlan>> {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.apiSspIdPut(id, handlerUpdateSSPRequest, options);
+      const localVarAxiosArgs = await localVarAxiosParamCreator.sspIdPut(id, handlerUpdateSSPRequest, options);
+      return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+    },
+    /**
+     * Create an SSP with the given title
+     * @summary Create an SSP
+     * @param {HandlerCreateSSPRequest} handlerCreateSSPRequest SSP to add
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async sspPost(
+      handlerCreateSSPRequest: HandlerCreateSSPRequest,
+      options?: AxiosRequestConfig,
+    ): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HandlerIdResponse>> {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.sspPost(handlerCreateSSPRequest, options);
       return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
     },
   };
@@ -3640,8 +3695,8 @@ export const SSPApiFactory = function (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspGet(options?: any): AxiosPromise<DomainSystemSecurityPlan> {
-      return localVarFp.apiSspGet(options).then(request => request(axios, basePath));
+    sspGet(options?: any): AxiosPromise<DomainSystemSecurityPlan> {
+      return localVarFp.sspGet(options).then(request => request(axios, basePath));
     },
     /**
      * Delete an SSP with the given ID
@@ -3650,8 +3705,8 @@ export const SSPApiFactory = function (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspIdDelete(id: string, options?: any): AxiosPromise<string> {
-      return localVarFp.apiSspIdDelete(id, options).then(request => request(axios, basePath));
+    sspIdDelete(id: string, options?: any): AxiosPromise<string> {
+      return localVarFp.sspIdDelete(id, options).then(request => request(axios, basePath));
     },
     /**
      * Get an SSP by its ID
@@ -3660,8 +3715,8 @@ export const SSPApiFactory = function (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspIdGet(id: string, options?: any): AxiosPromise<DomainSystemSecurityPlan> {
-      return localVarFp.apiSspIdGet(id, options).then(request => request(axios, basePath));
+    sspIdGet(id: string, options?: any): AxiosPromise<DomainSystemSecurityPlan> {
+      return localVarFp.sspIdGet(id, options).then(request => request(axios, basePath));
     },
     /**
      * Update an SSP with the given ID
@@ -3671,12 +3726,22 @@ export const SSPApiFactory = function (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    apiSspIdPut(
+    sspIdPut(
       id: string,
       handlerUpdateSSPRequest: HandlerUpdateSSPRequest,
       options?: any,
     ): AxiosPromise<DomainSystemSecurityPlan> {
-      return localVarFp.apiSspIdPut(id, handlerUpdateSSPRequest, options).then(request => request(axios, basePath));
+      return localVarFp.sspIdPut(id, handlerUpdateSSPRequest, options).then(request => request(axios, basePath));
+    },
+    /**
+     * Create an SSP with the given title
+     * @summary Create an SSP
+     * @param {HandlerCreateSSPRequest} handlerCreateSSPRequest SSP to add
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: any): AxiosPromise<HandlerIdResponse> {
+      return localVarFp.sspPost(handlerCreateSSPRequest, options).then(request => request(axios, basePath));
     },
   };
 };
@@ -3695,9 +3760,9 @@ export class SSPApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof SSPApi
    */
-  public apiSspGet(options?: AxiosRequestConfig) {
+  public sspGet(options?: AxiosRequestConfig) {
     return SSPApiFp(this.configuration)
-      .apiSspGet(options)
+      .sspGet(options)
       .then(request => request(this.axios, this.basePath));
   }
 
@@ -3709,9 +3774,9 @@ export class SSPApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof SSPApi
    */
-  public apiSspIdDelete(id: string, options?: AxiosRequestConfig) {
+  public sspIdDelete(id: string, options?: AxiosRequestConfig) {
     return SSPApiFp(this.configuration)
-      .apiSspIdDelete(id, options)
+      .sspIdDelete(id, options)
       .then(request => request(this.axios, this.basePath));
   }
 
@@ -3723,9 +3788,9 @@ export class SSPApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof SSPApi
    */
-  public apiSspIdGet(id: string, options?: AxiosRequestConfig) {
+  public sspIdGet(id: string, options?: AxiosRequestConfig) {
     return SSPApiFp(this.configuration)
-      .apiSspIdGet(id, options)
+      .sspIdGet(id, options)
       .then(request => request(this.axios, this.basePath));
   }
 
@@ -3738,9 +3803,23 @@ export class SSPApi extends BaseAPI {
    * @throws {RequiredError}
    * @memberof SSPApi
    */
-  public apiSspIdPut(id: string, handlerUpdateSSPRequest: HandlerUpdateSSPRequest, options?: AxiosRequestConfig) {
+  public sspIdPut(id: string, handlerUpdateSSPRequest: HandlerUpdateSSPRequest, options?: AxiosRequestConfig) {
     return SSPApiFp(this.configuration)
-      .apiSspIdPut(id, handlerUpdateSSPRequest, options)
+      .sspIdPut(id, handlerUpdateSSPRequest, options)
+      .then(request => request(this.axios, this.basePath));
+  }
+
+  /**
+   * Create an SSP with the given title
+   * @summary Create an SSP
+   * @param {HandlerCreateSSPRequest} handlerCreateSSPRequest SSP to add
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof SSPApi
+   */
+  public sspPost(handlerCreateSSPRequest: HandlerCreateSSPRequest, options?: AxiosRequestConfig) {
+    return SSPApiFp(this.configuration)
+      .sspPost(handlerCreateSSPRequest, options)
       .then(request => request(this.axios, this.basePath));
   }
 }
