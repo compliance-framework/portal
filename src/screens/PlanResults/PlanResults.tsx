@@ -14,7 +14,6 @@ export const PlanResults = observer<PlanResultsProps>(() => {
   return (
     <AppContainer>
       <div className="m-0 grid grid-cols-2 gap-2 p-0">
-        {/* <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>*/}
         <Summary id={id} resultId={resultId} />
         <ComplianceStatusByTargets id={id} resultId={resultId} />
         {/* <FindingList id={id} resultId={resultId} />
