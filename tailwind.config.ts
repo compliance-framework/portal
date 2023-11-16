@@ -1,5 +1,7 @@
+// organize-imports-ignore
 import tailwindForms from "@tailwindcss/forms";
 import daisyui from "daisyui";
+import { Config } from "tailwindcss";
 
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
