@@ -6,5 +6,6 @@ WORKDIR /usr/src/app
 COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
+RUN pnpm build
 EXPOSE 8080
-CMD pnpm start
+CMD pnpm preview
