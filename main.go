@@ -9,10 +9,8 @@ func main() {
 	e := echo.New()
 	addr := ":8081"
 
-	// h := http.FileServer(statikFS)
-
-	// e.GET("/", echo.WrapHandler(http.StripPrefix("/", h)))
-	e.Static("/", "dist")
+	e.Static("/assets", "dist/assets")
+	e.File("/*", "dist/index.html")
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 		Level: 5,
 	}))
