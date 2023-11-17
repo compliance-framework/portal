@@ -8,4 +8,4 @@ RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpm build
 EXPOSE 8081
-CMD pnpm start
+CMD pnpm preview
