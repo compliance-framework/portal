@@ -10,7 +10,7 @@ RUN pnpm run build
 
 # Build Stage 2
 # This serves the static files
-FROM nginx as serve
+FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /usr/src/app/dist/ /usr/share/nginx/html
 EXPOSE 8081
