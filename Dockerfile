@@ -7,6 +7,7 @@ COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpm run build
+RUN statik -src=./dist
 
 # Build Stage 2
 # This serves the static files
