@@ -9,8 +9,12 @@ func main() {
 	e := echo.New()
 	addr := ":8081"
 
-	e.Static("/assets", "dist/assets")
-	e.File("/*", "dist/index.html")
+	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
+		Index: "index.html",
+		HTML5: true,
+		Root:  "dist",
+	}))
+
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 		Level: 5,
 	}))
