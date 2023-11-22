@@ -13,10 +13,9 @@ func main() {
 
 	e.Static("/assets", "public/assets")
 	e.File("/*", "public/index.html")
-	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
-		Level: 9,
-	}))
 
+	e.Use(middleware.Gzip())
 	e.Use(middleware.Logger())
+
 	e.Logger.Fatal(e.Start(addr))
 }
