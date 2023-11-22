@@ -17,13 +17,14 @@ WORKDIR /app
 COPY main.go .
 COPY go.mod .
 COPY go.sum .
-RUN CGO_ENABLED=0 GOOS=linux go build -o /portal
+RUN CGO_ENABLED=0 GOOS=linux go build -o /serve
 
 # Run Stage
 # This serves the static files
 FROM alpine
 WORKDIR /
-COPY --from=builder-webapp /dist /dist/
-COPY --from=builder-server /portal /portal
-EXPOSE 8081
-CMD ["/portal"]
+COPY --from=builder-webapp /dist /public/
+COPY --from=builder-server /serve /serve
+ENV PORT=8081
+EXPOSE $PORT
+CMD ["/serve"]

@@ -1,16 +1,18 @@
 package main
 
 import (
+	"os"
+
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
 	e := echo.New()
-	addr := ":8081"
+	addr := ":" + os.Getenv("PORT")
 
-	e.Static("/assets", "dist/assets")
-	e.File("/*", "dist/index.html")
+	e.Static("/assets", "public/assets")
+	e.File("/*", "public/index.html")
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 		Level: 9,
 	}))
