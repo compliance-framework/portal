@@ -36,3 +36,5 @@ vite.config.js
 
 # Codegen temp file
 openapi.json
+
+portal
