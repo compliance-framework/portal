@@ -24,6 +24,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /portal
 FROM alpine
 WORKDIR /
 COPY --from=builder-webapp /dist /dist/
-COPY --from=builder-server /portal portal
+COPY --from=builder-server /portal /portal
 EXPOSE 8081
-CMD ["./portal"]
+CMD ["/portal"]
