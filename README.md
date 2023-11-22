@@ -11,6 +11,12 @@
 5. Run dev command `pnpm dev`
 6. It will show you what to open in terminal.
 
+# Deployment
+
+There is a Dockerfile available that runs on port 8081 that has it's own minimal and fast HTTP server written using labstack echo.
+
+Looking through the Dockerfile would be the best place to look with regards to how it is built, if you wish to for instance build/deploy onto your own CDN instead of running as a container.
+
 # Services
 
 Services should be auto-generated from locally running swagger using `pnpm gen`

@@ -1,6 +1,7 @@
 # Build Stage 1
 # This builds the dist files
 FROM node:lts-alpine as builder-webapp
+
 WORKDIR /app
 COPY . .
 RUN npm install -g pnpm
