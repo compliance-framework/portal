@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npm run preview",
+    "start": "go run main.go",
     "dev": "vite",
     "build": "tsc && vite build",
     "tsc": "tsc --noEmit",
