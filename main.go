@@ -12,7 +12,7 @@ func main() {
 	e.Static("/assets", "dist/assets")
 	e.File("/*", "dist/index.html")
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
-		Level: 5,
+		Level: 9,
 	}))
 
 	e.Use(middleware.Logger())
