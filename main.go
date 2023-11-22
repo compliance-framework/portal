@@ -10,7 +10,6 @@ func main() {
 	addr := ":8081"
 
 	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
-		Index: "index.html",
 		HTML5: true,
 		Root:  "dist",
 	}))
