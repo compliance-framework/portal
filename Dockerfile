@@ -13,7 +13,6 @@ RUN mv dist /dist
 # Run Stage
 # This serves the static files
 FROM ghcr.io/compliance-framework/nano-web:latest
-WORKDIR /
 COPY --from=builder-webapp /dist /public/
 ENV PORT=8081
 ENV SPA_MODE=1
