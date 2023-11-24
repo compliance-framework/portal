@@ -18,5 +18,3 @@ COPY --from=builder-webapp /dist /public/
 ENV PORT=8081
 ENV SPA_MODE=1
 ENV VITE_CONFIGURATION_SERVICE_URL="http://localhost:8080/api"
-EXPOSE $PORT
-CMD ["/serve"]
